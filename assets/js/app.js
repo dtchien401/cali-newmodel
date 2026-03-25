@@ -184,7 +184,7 @@
 
                   <div class="mt-4">
                     <div class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
-                      Package price
+                      ${state.lang === "vi" ? "Giá theo gói" : "Package price"}
                     </div>
                     <div class="mt-1 text-xl font-black text-red-600">${packagePrice}</div>
                     ${monthly}
@@ -201,7 +201,16 @@
 
   function renderCombos() {
     const wrap = document.getElementById("comboGroups");
-    if (!wrap || !comboGroups) return;
+    if (!wrap) return;
+
+    if (!comboGroups || !comboGroups.length) {
+      wrap.innerHTML = `
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-slate-500">
+          ${state.lang === "vi" ? "Chưa có combo để hiển thị." : "No combos available yet."}
+        </div>
+      `;
+      return;
+    }
 
     wrap.innerHTML = comboGroups.map((group) => {
       return `
@@ -268,10 +277,12 @@
                   <div class="mt-5 grid md:grid-cols-[1fr_auto] gap-4 items-end">
                     <div>
                       <div class="text-xs font-black uppercase tracking-[0.18em] text-slate-500">
-                        ${state.lang === "vi" ? "Estimated monthly investment" : "Estimated monthly investment"}
+                        ${state.lang === "vi" ? "Chi phí trung bình mỗi tháng" : "Estimated monthly investment"}
                       </div>
                       <div class="mt-1 text-3xl font-black text-red-600">${formatVND(summary.monthly)}</div>
-                      <div class="mt-1 text-sm text-slate-500">${formatVND(summary.total)} total</div>
+                      <div class="mt-1 text-sm text-slate-500">
+                        ${state.lang === "vi" ? "Tổng giá trị: " : "Total: "}${formatVND(summary.total)}
+                      </div>
                     </div>
 
                     <button onclick="useCombo('${combo.id}')" type="button"
@@ -489,5 +500,6 @@
     window.setLanguage("vi");
     initStoryTabs();
     initProductTabs();
+    renderAll();
   });
 })();
