@@ -5,550 +5,353 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Membership Transition & Configurator</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-    .lang-hidden { display: none; }
-    .hero-bg {
-      background:
-        radial-gradient(circle at top left, rgba(220,38,38,0.22), transparent 34%),
-        radial-gradient(circle at right center, rgba(239,68,68,0.14), transparent 28%),
-        linear-gradient(135deg, #0f172a 0%, #111827 48%, #1f2937 100%);
-    }
-    .soft-card { box-shadow: 0 18px 40px rgba(15, 23, 42, 0.10); }
-    .glass { backdrop-filter: blur(10px); background: rgba(255,255,255,0.72); }
-    .option-active { border-color: rgb(220 38 38); background: rgb(254 242 242); box-shadow: 0 8px 24px rgba(220,38,38,0.08); }
-    .pill-active { background: rgb(220 38 38); color: white; border-color: rgb(220 38 38); }
-    .benefit-selected { border-color: rgb(220 38 38); background: linear-gradient(180deg, rgba(254,242,242,1) 0%, rgba(255,255,255,1) 100%); }
-    .sticky-summary { position: sticky; top: 20px; }
-  </style>
+  <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
-<body class="bg-slate-100 text-slate-900">
-  <div class="min-h-screen hero-bg">
-    <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
-      <div class="flex items-center justify-between gap-4">
-        <div>
-          <div class="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
-            <span>Membership Transition</span>
-          </div>
+<body class="page-shell">
+  <div class="page-bg"></div>
+
+  <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4 relative z-10">
+    <div class="flex items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 rounded-full bg-white border border-slate-200 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-600 shadow-sm">
+          <span>Membership Transition</span>
         </div>
-        <button id="langToggle" class="rounded-full bg-white text-slate-900 px-4 py-2 text-sm font-bold shadow hover:scale-[1.02] transition">EN</button>
       </div>
-    </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-      <section class="rounded-[32px] overflow-hidden soft-card border border-white/15">
-        <div class="grid lg:grid-cols-[1.18fr_0.82fr]">
-          <div class="px-6 py-10 sm:px-10 sm:py-14 lg:px-12 lg:py-16 text-white">
-            <p class="lang-vi text-sm font-semibold uppercase tracking-[0.28em] text-red-200">Giai đoạn chuyển đổi sản phẩm</p>
-            <p class="lang-en lang-hidden text-sm font-semibold uppercase tracking-[0.28em] text-red-200">Product transition period</p>
+      <button
+        id="langToggle"
+        class="rounded-full bg-red-600 text-white px-4 py-2 text-sm font-bold shadow hover:scale-[1.02] transition"
+        type="button"
+      >
+        EN
+      </button>
+    </div>
+  </header>
 
-            <h1 class="lang-vi mt-4 text-4xl sm:text-5xl font-black leading-tight max-w-4xl">
-              Ngừng bán “giá”. Bắt đầu bán “quyền kiểm soát” và “cá nhân hóa”.
-            </h1>
-            <h1 class="lang-en lang-hidden mt-4 text-4xl sm:text-5xl font-black leading-tight max-w-4xl">
-              Stop selling “price”. Start selling “control” and “personalization”.
-            </h1>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 relative z-10">
+    <!-- HERO -->
+    <section class="rounded-[32px] overflow-hidden soft-card border border-white/70 hero-surface">
+      <div class="grid lg:grid-cols-[1.18fr_0.82fr]">
+        <div class="px-6 py-10 sm:px-10 sm:py-14 lg:px-12 lg:py-16">
+          <p class="lang-vi text-sm font-semibold uppercase tracking-[0.28em] text-red-500">
+            Giai đoạn chuyển đổi sản phẩm
+          </p>
+          <p class="lang-en lang-hidden text-sm font-semibold uppercase tracking-[0.28em] text-red-500">
+            Product transition period
+          </p>
 
-            <p class="lang-vi mt-6 max-w-3xl text-base sm:text-lg text-slate-200 leading-8">
-              Sau July 2026, Cali sẽ chuyển dần sang cách xây membership mới: linh hoạt hơn, cá nhân hóa hơn và cho khách quyền chủ động chọn đúng những gì mình thật sự sử dụng. Vì vậy, giai đoạn hiện tại là thời điểm cuối cùng để khách renew hoặc gia hạn các sản phẩm đang lưu hành.
-            </p>
-            <p class="lang-en lang-hidden mt-6 max-w-3xl text-base sm:text-lg text-slate-200 leading-8">
-              After July 2026, Cali will gradually move into a new way of building memberships: more flexible, more personalized, and giving clients more control to choose what they truly use. That makes the current period the final opportunity for clients to renew or extend the products that are currently in circulation.
-            </p>
+          <h1 class="lang-vi mt-4 text-4xl sm:text-5xl font-black leading-tight max-w-4xl text-slate-900">
+            Ngừng bán “giá”. Bắt đầu bán “quyền kiểm soát” và “cá nhân hóa”.
+          </h1>
+          <h1 class="lang-en lang-hidden mt-4 text-4xl sm:text-5xl font-black leading-tight max-w-4xl text-slate-900">
+            Stop selling “price”. Start selling “control” and “personalization”.
+          </h1>
 
-            <div class="mt-8 grid sm:grid-cols-3 gap-4">
-              <div class="glass rounded-2xl p-4 border border-white/20">
-                <div class="lang-vi text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">Pillar 1</div>
-                <div class="lang-en lang-hidden text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">Pillar 1</div>
-                <div class="lang-vi mt-2 text-sm font-semibold text-slate-900">Flexibility — không còn bị khóa trong bundle cứng</div>
-                <div class="lang-en lang-hidden mt-2 text-sm font-semibold text-slate-900">Flexibility — no more rigid bundles</div>
+          <p class="lang-vi mt-6 max-w-3xl text-base sm:text-lg text-slate-600 leading-8">
+            Sau July 2026, Cali sẽ chuyển dần sang cách xây membership mới: linh hoạt hơn, cá nhân hóa hơn và cho khách quyền chủ động chọn đúng những gì mình thật sự sử dụng. Vì vậy, giai đoạn hiện tại là thời điểm cuối cùng để khách renew hoặc gia hạn các sản phẩm đang lưu hành.
+          </p>
+          <p class="lang-en lang-hidden mt-6 max-w-3xl text-base sm:text-lg text-slate-600 leading-8">
+            After July 2026, Cali will gradually move into a new way of building memberships: more flexible, more personalized, and giving clients more control to choose what they truly use. That makes the current period the final opportunity for clients to renew or extend the products that are currently in circulation.
+          </p>
+
+          <div class="mt-8 grid sm:grid-cols-3 gap-4">
+            <div class="premium-card rounded-2xl p-4">
+              <div class="text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">Pillar 1</div>
+              <div class="lang-vi mt-2 text-sm font-semibold text-slate-900">
+                Flexibility — không còn bị khóa trong bundle cứng
               </div>
-              <div class="glass rounded-2xl p-4 border border-white/20">
-                <div class="lang-vi text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">Pillar 2</div>
-                <div class="lang-en lang-hidden text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">Pillar 2</div>
-                <div class="lang-vi mt-2 text-sm font-semibold text-slate-900">Personalization — chọn đúng thứ khách thật sự dùng</div>
-                <div class="lang-en lang-hidden mt-2 text-sm font-semibold text-slate-900">Personalization — choose what the client truly uses</div>
-              </div>
-              <div class="glass rounded-2xl p-4 border border-white/20">
-                <div class="lang-vi text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">Pillar 3</div>
-                <div class="lang-en lang-hidden text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">Pillar 3</div>
-                <div class="lang-vi mt-2 text-sm font-semibold text-slate-900">Control — kiểm soát trải nghiệm và mức chi tiêu</div>
-                <div class="lang-en lang-hidden mt-2 text-sm font-semibold text-slate-900">Control — control both experience and spend</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-white px-6 py-10 sm:px-8 lg:px-10">
-            <div class="rounded-3xl bg-slate-50 border border-slate-200 p-6">
-              <div class="lang-vi text-sm font-extrabold uppercase tracking-[0.2em] text-red-600">Nguyên tắc truyền thông</div>
-              <div class="lang-en lang-hidden text-sm font-extrabold uppercase tracking-[0.2em] text-red-600">Communication rule</div>
-
-              <div class="mt-4 grid gap-3">
-                <div class="rounded-2xl border border-red-200 bg-red-50 p-4">
-                  <div class="lang-vi text-xs font-black uppercase tracking-[0.2em] text-red-700">Không nói</div>
-                  <div class="lang-en lang-hidden text-xs font-black uppercase tracking-[0.2em] text-red-700">Do not say</div>
-                  <p class="lang-vi mt-2 text-sm text-red-900">“Giá mới cao hơn”, “Không còn bundle nữa”.</p>
-                  <p class="lang-en lang-hidden mt-2 text-sm text-red-900">“The new price is higher”, “There are no more bundles”.</p>
-                </div>
-                <div class="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
-                  <div class="lang-vi text-xs font-black uppercase tracking-[0.2em] text-emerald-700">Phải nói</div>
-                  <div class="lang-en lang-hidden text-xs font-black uppercase tracking-[0.2em] text-emerald-700">Say this instead</div>
-                  <p class="lang-vi mt-2 text-sm text-emerald-900">“Giờ đây anh/chị có thể tự thiết kế membership theo lifestyle và nhu cầu tập luyện của mình.”</p>
-                  <p class="lang-en lang-hidden mt-2 text-sm text-emerald-900">“Now you can design your own membership based on your lifestyle and training needs.”</p>
-                </div>
-                <div class="rounded-2xl bg-white border border-slate-200 p-4 text-sm leading-7 text-slate-700">
-                  <p class="lang-vi">Tuy nhiên, ngay ở giai đoạn hiện tại, khách vẫn đang có cơ hội cuối để giữ lại các sản phẩm quen thuộc bằng cách renew hoặc gia hạn trước khi hệ sản phẩm mới được áp dụng rộng rãi.</p>
-                  <p class="lang-en lang-hidden">At the same time, during the current period, clients still have a final opportunity to keep their familiar products by renewing or extending before the new product system is applied more broadly.</p>
-                </div>
+              <div class="lang-en lang-hidden mt-2 text-sm font-semibold text-slate-900">
+                Flexibility — no more rigid bundles
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section class="mt-8 rounded-[28px] bg-white border border-slate-200 p-6 sm:p-8 soft-card">
-        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
-          <div>
-            <p class="lang-vi text-sm font-bold uppercase tracking-[0.2em] text-red-600">Demo cấu trúc mới</p>
-            <p class="lang-en lang-hidden text-sm font-bold uppercase tracking-[0.2em] text-red-600">New structure demo</p>
-            <h2 class="lang-vi mt-2 text-2xl sm:text-3xl font-black">Tự thiết kế membership theo lifestyle và nhu cầu tập luyện</h2>
-            <h2 class="lang-en lang-hidden mt-2 text-2xl sm:text-3xl font-black">Design your own membership based on lifestyle and training needs</h2>
-          </div>
-          <div class="lang-vi text-sm text-slate-500">Logic giá mô phỏng theo file pricing bạn gửi</div>
-          <div class="lang-en lang-hidden text-sm text-slate-500">Pricing logic simulated from the pricing file you shared</div>
-        </div>
-
-        <div class="mt-8 grid xl:grid-cols-[1.2fr_0.8fr] gap-6">
-          <div class="space-y-6">
-            <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
-              <div class="flex items-center justify-between gap-4 mb-4">
-                <div>
-                  <div class="lang-vi text-lg font-black">Bước 1 — Chọn thời hạn</div>
-                  <div class="lang-en lang-hidden text-lg font-black">Step 1 — Select duration</div>
-                </div>
-                <div class="lang-vi text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">Duration discount</div>
-                <div class="lang-en lang-hidden text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">Duration discount</div>
+            <div class="premium-card rounded-2xl p-4">
+              <div class="text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">Pillar 2</div>
+              <div class="lang-vi mt-2 text-sm font-semibold text-slate-900">
+                Personalization — chọn đúng thứ khách thật sự dùng
               </div>
-              <div id="durationOptions" class="grid grid-cols-2 md:grid-cols-4 gap-3"></div>
+              <div class="lang-en lang-hidden mt-2 text-sm font-semibold text-slate-900">
+                Personalization — choose what the client truly uses
+              </div>
             </div>
 
-            <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
-              <div class="mb-4">
-                <div class="lang-vi text-lg font-black">Bước 2 — Chọn gym access</div>
-                <div class="lang-en lang-hidden text-lg font-black">Step 2 — Select gym access</div>
+            <div class="premium-card rounded-2xl p-4">
+              <div class="text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">Pillar 3</div>
+              <div class="lang-vi mt-2 text-sm font-semibold text-slate-900">
+                Control — kiểm soát trải nghiệm và mức chi tiêu
               </div>
-              <div id="accessOptions" class="grid md:grid-cols-2 gap-4"></div>
-            </div>
-
-            <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
-              <div class="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                <div>
-                  <div class="lang-vi text-lg font-black">Bước 3 — Chọn benefits</div>
-                  <div class="lang-en lang-hidden text-lg font-black">Step 3 — Select benefits</div>
-                </div>
-                <div class="rounded-full bg-white border border-slate-200 px-3 py-1.5 text-xs font-bold text-slate-600">
-                  <span class="lang-vi">Discount theo số benefit: 1st -10%, 2nd -15%, từ 3rd trở đi -20%</span>
-                  <span class="lang-en lang-hidden">Discount by number of benefits: 1st -10%, 2nd -15%, 3rd onward -20%</span>
-                </div>
-              </div>
-              <div id="benefitGroups" class="space-y-6"></div>
-            </div>
-          </div>
-
-          <div>
-            <div class="sticky-summary rounded-3xl bg-slate-900 text-white p-6 soft-card">
-              <div class="flex items-center justify-between gap-4">
-                <div>
-                  <div class="lang-vi text-sm uppercase tracking-[0.2em] text-red-200 font-bold">Summary</div>
-                  <div class="lang-en lang-hidden text-sm uppercase tracking-[0.2em] text-red-200 font-bold">Summary</div>
-                  <h3 class="lang-vi mt-2 text-2xl font-black">Membership của khách</h3>
-                  <h3 class="lang-en lang-hidden mt-2 text-2xl font-black">Client membership</h3>
-                </div>
-              </div>
-
-              <div class="mt-6 space-y-4">
-                <div class="rounded-2xl bg-white/5 border border-white/10 p-4">
-                  <div class="lang-vi text-xs uppercase tracking-[0.2em] text-slate-300 font-bold">Duration</div>
-                  <div class="lang-en lang-hidden text-xs uppercase tracking-[0.2em] text-slate-300 font-bold">Duration</div>
-                  <div id="summaryDuration" class="mt-2 text-lg font-bold">12 months</div>
-                </div>
-
-                <div class="rounded-2xl bg-white/5 border border-white/10 p-4">
-                  <div class="lang-vi text-xs uppercase tracking-[0.2em] text-slate-300 font-bold">Gym access</div>
-                  <div class="lang-en lang-hidden text-xs uppercase tracking-[0.2em] text-slate-300 font-bold">Gym access</div>
-                  <div id="summaryAccess" class="mt-2 text-lg font-bold">Gold</div>
-                  <div id="summaryAccessRemark" class="mt-1 text-sm text-slate-300"></div>
-                </div>
-
-                <div class="rounded-2xl bg-white/5 border border-white/10 p-4">
-                  <div class="flex items-center justify-between gap-3">
-                    <div class="lang-vi text-xs uppercase tracking-[0.2em] text-slate-300 font-bold">Benefits đã chọn</div>
-                    <div class="lang-en lang-hidden text-xs uppercase tracking-[0.2em] text-slate-300 font-bold">Selected benefits</div>
-                    <div id="benefitCountBadge" class="rounded-full bg-red-500 px-2.5 py-1 text-xs font-black">0</div>
-                  </div>
-                  <div id="summaryBenefits" class="mt-3 space-y-2 text-sm text-slate-200"></div>
-                </div>
-
-                <div class="rounded-2xl bg-red-600 p-5">
-                  <div class="lang-vi text-xs uppercase tracking-[0.2em] text-red-100 font-bold">Estimated monthly investment</div>
-                  <div class="lang-en lang-hidden text-xs uppercase tracking-[0.2em] text-red-100 font-bold">Estimated monthly investment</div>
-                  <div id="summaryMonthly" class="mt-2 text-4xl font-black">0</div>
-                </div>
-
-                <div class="rounded-2xl bg-white p-5 text-slate-900">
-                  <div class="lang-vi text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">Total contract value</div>
-                  <div class="lang-en lang-hidden text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">Total contract value</div>
-                  <div id="summaryTotal" class="mt-2 text-3xl font-black">0</div>
-                  <div id="summaryFootnote" class="mt-2 text-xs text-slate-500 leading-6"></div>
-                </div>
+              <div class="lang-en lang-hidden mt-2 text-sm font-semibold text-slate-900">
+                Control — control both experience and spend
               </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <section class="mt-8 grid lg:grid-cols-3 gap-6">
-        <div class="rounded-3xl bg-white p-6 soft-card border border-slate-200">
-          <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center text-xl font-black">1</div>
-          <h2 class="lang-vi mt-4 text-xl font-extrabold">Nói đúng logic</h2>
-          <h2 class="lang-en lang-hidden mt-4 text-xl font-extrabold">Use the right logic</h2>
-          <p class="lang-vi mt-3 text-slate-600 leading-7">Không bán chuyện “đắt hơn hay rẻ hơn”. Hãy bán cảm giác chủ động: khách có thể tự tạo membership phù hợp với họ.</p>
-          <p class="lang-en lang-hidden mt-3 text-slate-600 leading-7">Do not sell the story of “higher” or “lower” price. Sell the feeling of control: clients can now build a membership that fits them.</p>
-        </div>
+        <div class="bg-white/80 px-6 py-10 sm:px-8 lg:px-10 border-l border-slate-100">
+          <div class="rounded-3xl bg-slate-50 border border-slate-200 p-6">
+            <div class="lang-vi text-sm font-extrabold uppercase tracking-[0.2em] text-red-600">
+              Nguyên tắc truyền thông
+            </div>
+            <div class="lang-en lang-hidden text-sm font-extrabold uppercase tracking-[0.2em] text-red-600">
+              Communication rule
+            </div>
 
-        <div class="rounded-3xl bg-white p-6 soft-card border border-slate-200">
-          <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center text-xl font-black">2</div>
-          <h2 class="lang-vi mt-4 text-xl font-extrabold">Tận dụng giai đoạn chuyển tiếp</h2>
-          <h2 class="lang-en lang-hidden mt-4 text-xl font-extrabold">Use the transition period</h2>
-          <p class="lang-vi mt-3 text-slate-600 leading-7">Nhấn mạnh đây là thời điểm cuối cùng để renew hoặc gia hạn sản phẩm đang lưu hành trước khi hệ mới trở thành hướng chính.</p>
-          <p class="lang-en lang-hidden mt-3 text-slate-600 leading-7">Emphasize that this is the final period to renew or extend the current products before the new system becomes the main direction.</p>
-        </div>
+            <div class="mt-4 grid gap-3">
+              <div class="rounded-2xl border border-red-200 bg-red-50 p-4">
+                <div class="lang-vi text-xs font-black uppercase tracking-[0.2em] text-red-700">
+                  Không nói
+                </div>
+                <div class="lang-en lang-hidden text-xs font-black uppercase tracking-[0.2em] text-red-700">
+                  Do not say
+                </div>
+                <p class="lang-vi mt-2 text-sm text-red-900">
+                  “Giá mới cao hơn”, “Không còn bundle nữa”.
+                </p>
+                <p class="lang-en lang-hidden mt-2 text-sm text-red-900">
+                  “The new price is higher”, “There are no more bundles”.
+                </p>
+              </div>
 
-        <div class="rounded-3xl bg-white p-6 soft-card border border-slate-200">
-          <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center text-xl font-black">3</div>
-          <h2 class="lang-vi mt-4 text-xl font-extrabold">Mục tiêu cuối cùng</h2>
-          <h2 class="lang-en lang-hidden mt-4 text-xl font-extrabold">Ultimate objective</h2>
-          <p class="lang-vi mt-3 text-slate-600 leading-7">Giúp đội ngũ chuyển từ mindset “bundle + giá” sang mindset “lifestyle solution + personalized design”.</p>
-          <p class="lang-en lang-hidden mt-3 text-slate-600 leading-7">Help the team move from a “bundle + price” mindset to a “lifestyle solution + personalized design” mindset.</p>
-        </div>
-      </section>
+              <div class="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
+                <div class="lang-vi text-xs font-black uppercase tracking-[0.2em] text-emerald-700">
+                  Phải nói
+                </div>
+                <div class="lang-en lang-hidden text-xs font-black uppercase tracking-[0.2em] text-emerald-700">
+                  Say this instead
+                </div>
+                <p class="lang-vi mt-2 text-sm text-emerald-900">
+                  “Giờ đây anh/chị có thể tự thiết kế membership theo lifestyle và nhu cầu tập luyện của mình.”
+                </p>
+                <p class="lang-en lang-hidden mt-2 text-sm text-emerald-900">
+                  “Now you can design your own membership based on your lifestyle and training needs.”
+                </p>
+              </div>
 
-      <section class="mt-8 rounded-[28px] bg-gradient-to-r from-red-600 to-red-500 text-white p-6 sm:p-8 soft-card">
-        <div class="grid lg:grid-cols-[1fr_auto] gap-6 items-center">
-          <div>
-            <p class="lang-vi text-sm font-bold uppercase tracking-[0.2em] text-red-100">Suggested script</p>
-            <p class="lang-en lang-hidden text-sm font-bold uppercase tracking-[0.2em] text-red-100">Suggested script</p>
-            <h2 class="lang-vi mt-2 text-2xl sm:text-3xl font-black">“Giờ đây anh/chị có thể tự thiết kế membership theo đúng nhu cầu của mình.”</h2>
-            <h2 class="lang-en lang-hidden mt-2 text-2xl sm:text-3xl font-black">“Now you can design your own membership based on your actual needs.”</h2>
-            <p class="lang-vi mt-3 text-red-50 leading-7">Và trong giai đoạn hiện tại, nếu anh/chị vẫn muốn giữ các sản phẩm đang lưu hành, đây là thời điểm cuối cùng để renew hoặc gia hạn.</p>
-            <p class="lang-en lang-hidden mt-3 text-red-50 leading-7">And during the current period, if you still want to keep the products currently in circulation, this is the final opportunity to renew or extend them.</p>
+              <div class="rounded-2xl bg-white border border-slate-200 p-4 text-sm leading-7 text-slate-700">
+                <p class="lang-vi">
+                  Tuy nhiên, ngay ở giai đoạn hiện tại, khách vẫn đang có cơ hội cuối để giữ lại các sản phẩm quen thuộc bằng cách renew hoặc gia hạn trước khi hệ sản phẩm mới được áp dụng rộng rãi.
+                </p>
+                <p class="lang-en lang-hidden">
+                  At the same time, during the current period, clients still have a final opportunity to keep their familiar products by renewing or extending before the new product system is applied more broadly.
+                </p>
+              </div>
+            </div>
           </div>
-          <div class="rounded-2xl bg-white/15 border border-white/20 px-5 py-4 text-sm leading-7 max-w-md">
-            <p class="lang-vi">Lưu ý: trang này dùng để đào tạo nhân viên và mô phỏng cách show option cho khách. Có thể tiếp tục tinh chỉnh giá, wording và rule promo sau.</p>
-            <p class="lang-en lang-hidden">Note: this page is for staff training and for demonstrating options to clients. Pricing, wording, and promotional rules can be refined further later.</p>
-          </div>
         </div>
-      </section>
-    </main>
-  </div>
+      </div>
+    </section>
 
-  <script>
-    const state = {
-      lang: 'vi',
-      duration: 12,
-      access: 'gold',
-      benefits: []
-    };
+    <!-- CONFIGURATOR -->
+    <section class="mt-8 rounded-[28px] bg-white border border-slate-200 p-6 sm:p-8 soft-card">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+        <div>
+          <p class="lang-vi text-sm font-bold uppercase tracking-[0.2em] text-red-600">
+            Demo cấu trúc mới
+          </p>
+          <p class="lang-en lang-hidden text-sm font-bold uppercase tracking-[0.2em] text-red-600">
+            New structure demo
+          </p>
 
-    const durationLabels = {
-      6: { vi: '6 tháng', en: '6 months' },
-      12: { vi: '12 tháng', en: '12 months' },
-      24: { vi: '24 tháng', en: '24 months' },
-      36: { vi: '36 tháng', en: '36 months' }
-    };
+          <h2 class="lang-vi mt-2 text-2xl sm:text-3xl font-black text-slate-900">
+            Tự thiết kế membership theo lifestyle và nhu cầu tập luyện
+          </h2>
+          <h2 class="lang-en lang-hidden mt-2 text-2xl sm:text-3xl font-black text-slate-900">
+            Design your own membership based on lifestyle and training needs
+          </h2>
+        </div>
 
-    const accessData = [
-      {
-        id: 'gold',
-        name: { vi: 'Gold', en: 'Gold' },
-        remark: { vi: '1 club, không có Central area', en: '1 club, no Central area' },
-        prices: { 12: 4850000, 24: 9160000, 36: 12120000 }
-      },
-      {
-        id: 'platinum',
-        name: { vi: 'Platinum', en: 'Platinum' },
-        remark: { vi: 'Regional clubs, không Wellness Hub, không Central area', en: 'Regional clubs, no Wellness Hub, no Central area' },
-        prices: { 12: 5930000, 24: 11200000, 36: 14820000 }
-      },
-      {
-        id: 'wellness',
-        name: { vi: 'Wellness Hub', en: 'Wellness Hub' },
-        remark: { vi: 'Regional clubs + Wellness Hub, không Central area', en: 'Regional clubs + Wellness Hub, no Central area' },
-        prices: { 12: 7010000, 24: 13240000, 36: 17520000 }
-      },
-      {
-        id: 'centuryon',
-        name: { vi: 'Centuryon + Jacuzzi + Swimming', en: 'Centuryon + Jacuzzi + Swimming' },
-        remark: { vi: 'Nationwide, Central area, Wellness Hub', en: 'Nationwide, Central area, Wellness Hub' },
-        prices: { 12: 14030000, 24: 26500000, 36: 35070000 }
-      }
-    ];
+        <div class="lang-vi text-sm text-slate-500">
+          Logic giá mô phỏng theo file pricing bạn gửi
+        </div>
+        <div class="lang-en lang-hidden text-sm text-slate-500">
+          Pricing logic simulated from the pricing file you shared
+        </div>
+      </div>
 
-    const benefitGroups = [
-      {
-        key: 'essential',
-        label: { vi: 'Essential experience', en: 'Essential experience' },
-        items: [
-          { id: 'gx', name: { vi: 'GX', en: 'GX' }, unit: { vi: '/class', en: '/class' }, prices: { 6: 1020000, 12: 1800000, 24: 3120000, 36: 3600000 } },
-          { id: 'yoga', name: { vi: 'Yoga', en: 'Yoga' }, unit: { vi: '/class', en: '/class' }, prices: { 6: 1020000, 12: 1800000, 24: 3120000, 36: 3600000 } },
-          { id: 'towel', name: { vi: 'Towel', en: 'Towel' }, unit: { vi: '/day/check-in', en: '/day/check-in' }, prices: { 6: 1280000, 12: 2250000, 24: 3900000, 36: 4500000 } },
-          { id: 'water', name: { vi: 'Daily mineral water', en: 'Daily mineral water' }, unit: { vi: '/day/check-in', en: '/day/check-in' }, prices: { 6: 920000, 12: 1620000, 24: 2810000, 36: 3240000 } }
-        ]
-      },
-      {
-        key: 'tier1',
-        label: { vi: 'Signature experience – Tier 1', en: 'Signature experience – Tier 1' },
-        items: [
-          { id: 'guest', name: { vi: '1 non-fixed guest', en: '1 non-fixed guest' }, unit: { vi: 'served as Gold', en: 'served as Gold' }, prices: { 6: 1140000, 12: 2020000, 24: 3500000, 36: 4040000 } },
-          { id: 'locker', name: { vi: 'Locker', en: 'Locker' }, unit: { vi: '/month', en: '/month' }, prices: { 6: 1020000, 12: 1800000, 24: 3120000, 36: 3600000 } }
-        ]
-      },
-      {
-        key: 'tier2',
-        label: { vi: 'Signature experience – Tier 2', en: 'Signature experience – Tier 2' },
-        items: [
-          { id: 'drink', name: { vi: 'Daily special drink', en: 'Daily special drink' }, unit: { vi: '/day/check-in', en: '/day/check-in' }, prices: { 6: 2450000, 12: 4320000, 24: 7490000, 36: 8640000 } },
-          { id: 'hpx', name: { vi: 'HPX / PT / YI 30\'', en: 'HPX / PT / YI 30\'' }, unit: { vi: '2 sessions 30\'/month', en: '2 sessions 30\'/month' }, prices: { 6: 2940000, 12: 5180000, 24: 8990000, 36: 10370000 } }
-        ]
-      },
-      {
-        key: 'premium',
-        label: { vi: 'Signature experience', en: 'Signature experience' },
-        items: [
-          { id: 'parking', name: { vi: 'Car parking', en: 'Car parking' }, unit: { vi: '/time', en: '/time' }, prices: { 6: 4080000, 12: 7200000 } },
-          { id: 'bathrobe', name: { vi: 'Bathrobe', en: 'Bathrobe' }, unit: { vi: '/time', en: '/time' }, prices: { 6: 1280000, 12: 2250000, 24: 3900000, 36: 4500000 } }
-        ]
-      }
-    ];
-
-    const discountByRank = [0.10, 0.15, 0.20, 0.20, 0.20];
-
-    function formatVND(num) {
-      return new Intl.NumberFormat('en-US').format(Math.round(num)) + ' VND';
-    }
-
-    function durationDiscountLabel(months) {
-      if (months === 6) return 'Base';
-      if (months === 12) return '-15%';
-      if (months === 24) return '-25%';
-      if (months === 36) return '-35%';
-      return '';
-    }
-
-    function setLanguage(lang) {
-      state.lang = lang;
-      document.documentElement.lang = lang;
-      document.querySelectorAll('.lang-vi').forEach(el => el.classList.toggle('lang-hidden', lang !== 'vi'));
-      document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('lang-hidden', lang !== 'en'));
-      document.getElementById('langToggle').textContent = lang === 'vi' ? 'EN' : 'VI';
-      renderAll();
-    }
-
-    function renderDurations() {
-      const wrap = document.getElementById('durationOptions');
-      wrap.innerHTML = [6, 12, 24, 36].map(months => {
-        const active = state.duration === months ? 'option-active' : 'bg-white border-slate-200';
-        const label = durationLabels[months][state.lang];
-        return `
-          <button onclick="selectDuration(${months})" class="text-left rounded-2xl border p-4 transition ${active}">
-            <div class="text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">${durationDiscountLabel(months)}</div>
-            <div class="mt-2 text-lg font-black text-slate-900">${label}</div>
-          </button>
-        `;
-      }).join('');
-    }
-
-    function renderAccess() {
-      const wrap = document.getElementById('accessOptions');
-      wrap.innerHTML = accessData.map(item => {
-        const active = state.access === item.id ? 'option-active' : 'bg-white border-slate-200';
-        const unavailable = !item.prices[state.duration];
-        const priceText = unavailable
-          ? (state.lang === 'vi' ? 'Không bán ở thời hạn này' : 'Not sold for this duration')
-          : formatVND(item.prices[state.duration]);
-        const monthly = unavailable ? '' : `<div class="mt-1 text-sm text-slate-500">${formatVND(item.prices[state.duration] / state.duration)} / ${state.lang === 'vi' ? 'tháng' : 'month'}</div>`;
-        return `
-          <button onclick="selectAccess('${item.id}')" class="text-left rounded-2xl border p-5 transition ${active} ${unavailable ? 'opacity-70' : ''}">
-            <div class="flex items-start justify-between gap-3">
+      <div class="mt-8 grid xl:grid-cols-[1.2fr_0.8fr] gap-6">
+        <div class="space-y-6">
+          <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+            <div class="flex items-center justify-between gap-4 mb-4">
               <div>
-                <div class="text-lg font-black text-slate-900">${item.name[state.lang]}</div>
-                <div class="mt-1 text-sm text-slate-500 leading-6">${item.remark[state.lang]}</div>
+                <div class="lang-vi text-lg font-black text-slate-900">Bước 1 — Chọn thời hạn</div>
+                <div class="lang-en lang-hidden text-lg font-black text-slate-900">Step 1 — Select duration</div>
+              </div>
+              <div class="lang-vi text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">
+                Duration discount
+              </div>
+              <div class="lang-en lang-hidden text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">
+                Duration discount
               </div>
             </div>
-            <div class="mt-4 text-xl font-black text-red-600">${priceText}</div>
-            ${monthly}
-          </button>
-        `;
-      }).join('');
-    }
-
-    function renderBenefits() {
-      const wrap = document.getElementById('benefitGroups');
-      wrap.innerHTML = benefitGroups.map(group => {
-        return `
-          <div>
-            <div class="text-sm font-black uppercase tracking-[0.18em] text-slate-500 mb-3">${group.label[state.lang]}</div>
-            <div class="grid md:grid-cols-2 gap-4">
-              ${group.items.map(item => {
-                const selected = state.benefits.includes(item.id);
-                const active = selected ? 'benefit-selected' : 'bg-white border-slate-200';
-                const unavailable = !item.prices[state.duration];
-                const priceText = unavailable
-                  ? (state.lang === 'vi' ? 'Không bán ở thời hạn này' : 'Not sold for this duration')
-                  : formatVND(item.prices[state.duration]);
-                const monthly = unavailable ? '' : `<div class="mt-1 text-sm text-slate-500">${formatVND(item.prices[state.duration] / state.duration)} / ${state.lang === 'vi' ? 'tháng' : 'month'}</div>`;
-                return `
-                  <button onclick="toggleBenefit('${item.id}')" class="text-left rounded-2xl border p-5 transition ${active} ${unavailable ? 'opacity-60' : ''}">
-                    <div class="flex items-start justify-between gap-3">
-                      <div>
-                        <div class="text-lg font-black text-slate-900">${item.name[state.lang]}</div>
-                        <div class="mt-1 text-sm text-slate-500">${item.unit[state.lang]}</div>
-                      </div>
-                      <div class="rounded-full px-3 py-1 text-xs font-black border ${selected ? 'pill-active' : 'bg-white text-slate-500 border-slate-200'}">
-                        ${selected ? (state.lang === 'vi' ? 'Đã chọn' : 'Selected') : (state.lang === 'vi' ? 'Chọn' : 'Select')}
-                      </div>
-                    </div>
-                    <div class="mt-4 text-xl font-black text-red-600">${priceText}</div>
-                    ${monthly}
-                  </button>
-                `;
-              }).join('')}
-            </div>
+            <div id="durationOptions" class="grid grid-cols-2 md:grid-cols-4 gap-3"></div>
           </div>
-        `;
-      }).join('');
-    }
 
-    function getSelectedAccess() {
-      let access = accessData.find(x => x.id === state.access) || accessData[0];
-      if (!access.prices[state.duration]) {
-        const fallback = accessData.find(x => x.prices[state.duration]);
-        access = fallback || access;
-        state.access = access.id;
-      }
-      return access;
-    }
+          <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+            <div class="mb-4">
+              <div class="lang-vi text-lg font-black text-slate-900">Bước 2 — Chọn gym access</div>
+              <div class="lang-en lang-hidden text-lg font-black text-slate-900">Step 2 — Select gym access</div>
+            </div>
+            <div id="accessOptions" class="grid md:grid-cols-2 gap-4"></div>
+          </div>
 
-    function getBenefitById(id) {
-      for (const group of benefitGroups) {
-        const found = group.items.find(item => item.id === id);
-        if (found) return found;
-      }
-      return null;
-    }
+          <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+            <div class="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <div>
+                <div class="lang-vi text-lg font-black text-slate-900">Bước 3 — Chọn benefits</div>
+                <div class="lang-en lang-hidden text-lg font-black text-slate-900">Step 3 — Select benefits</div>
+              </div>
+              <div class="rounded-full bg-white border border-slate-200 px-3 py-1.5 text-xs font-bold text-slate-600">
+                <span class="lang-vi">Discount theo số benefit: 1st -10%, 2nd -15%, từ 3rd trở đi -20%</span>
+                <span class="lang-en lang-hidden">Discount by number of benefits: 1st -10%, 2nd -15%, 3rd onward -20%</span>
+              </div>
+            </div>
+            <div id="benefitGroups" class="space-y-6"></div>
+          </div>
+        </div>
 
-    function recalcBenefitsForDuration() {
-      state.benefits = state.benefits.filter(id => {
-        const item = getBenefitById(id);
-        return item && item.prices[state.duration];
-      });
-    }
+        <div>
+          <div class="sticky-summary rounded-3xl summary-panel p-6 soft-card">
+            <div>
+              <div class="lang-vi text-sm uppercase tracking-[0.2em] text-red-200 font-bold">Summary</div>
+              <div class="lang-en lang-hidden text-sm uppercase tracking-[0.2em] text-red-200 font-bold">Summary</div>
+              <h3 class="lang-vi mt-2 text-2xl font-black text-white">Membership của khách</h3>
+              <h3 class="lang-en lang-hidden mt-2 text-2xl font-black text-white">Client membership</h3>
+            </div>
 
-    function calculateSummary() {
-      const access = getSelectedAccess();
-      const accessPrice = access.prices[state.duration] || 0;
-      const selectedBenefitObjects = state.benefits.map(getBenefitById).filter(Boolean);
+            <div class="mt-6 space-y-4">
+              <div class="rounded-2xl bg-white/5 border border-white/10 p-4">
+                <div class="lang-vi text-xs uppercase tracking-[0.2em] text-slate-300 font-bold">Duration</div>
+                <div class="lang-en lang-hidden text-xs uppercase tracking-[0.2em] text-slate-300 font-bold">Duration</div>
+                <div id="summaryDuration" class="mt-2 text-lg font-bold text-white">12 months</div>
+              </div>
 
-      let benefitTotal = 0;
-      const benefitRows = selectedBenefitObjects.map((item, index) => {
-        const base = item.prices[state.duration] || 0;
-        const discount = discountByRank[Math.min(index, discountByRank.length - 1)] || 0.20;
-        const finalPrice = base * (1 - discount);
-        benefitTotal += finalPrice;
-        return { item, base, discount, finalPrice };
-      });
+              <div class="rounded-2xl bg-white/5 border border-white/10 p-4">
+                <div class="lang-vi text-xs uppercase tracking-[0.2em] text-slate-300 font-bold">Gym access</div>
+                <div class="lang-en lang-hidden text-xs uppercase tracking-[0.2em] text-slate-300 font-bold">Gym access</div>
+                <div id="summaryAccess" class="mt-2 text-lg font-bold text-white">Gold</div>
+                <div id="summaryAccessRemark" class="mt-1 text-sm text-slate-300"></div>
+              </div>
 
-      const total = accessPrice + benefitTotal;
-      const monthly = total / state.duration;
-
-      return { access, accessPrice, benefitRows, total, monthly };
-    }
-
-    function renderSummary() {
-      const summary = calculateSummary();
-      document.getElementById('summaryDuration').textContent = durationLabels[state.duration][state.lang];
-      document.getElementById('summaryAccess').textContent = summary.access.name[state.lang];
-      document.getElementById('summaryAccessRemark').textContent = summary.access.remark[state.lang];
-      document.getElementById('summaryMonthly').textContent = formatVND(summary.monthly);
-      document.getElementById('summaryTotal').textContent = formatVND(summary.total);
-      document.getElementById('benefitCountBadge').textContent = String(summary.benefitRows.length);
-
-      const benefitHtml = summary.benefitRows.length
-        ? summary.benefitRows.map((row, index) => {
-            const discountLabel = '-' + Math.round(row.discount * 100) + '%';
-            return `
-              <div class="rounded-xl bg-white/5 border border-white/10 p-3">
-                <div class="flex items-start justify-between gap-3">
-                  <div>
-                    <div class="font-bold">${index + 1}. ${row.item.name[state.lang]}</div>
-                    <div class="text-xs text-slate-300 mt-1">${row.item.unit[state.lang]}</div>
+              <div class="rounded-2xl bg-white/5 border border-white/10 p-4">
+                <div class="flex items-center justify-between gap-3">
+                  <div class="lang-vi text-xs uppercase tracking-[0.2em] text-slate-300 font-bold">
+                    Benefits đã chọn
                   </div>
-                  <div class="text-right">
-                    <div class="text-xs text-red-200 font-black">${discountLabel}</div>
-                    <div class="font-bold">${formatVND(row.finalPrice)}</div>
+                  <div class="lang-en lang-hidden text-xs uppercase tracking-[0.2em] text-slate-300 font-bold">
+                    Selected benefits
+                  </div>
+                  <div id="benefitCountBadge" class="rounded-full bg-red-500 px-2.5 py-1 text-xs font-black text-white">
+                    0
                   </div>
                 </div>
+                <div id="summaryBenefits" class="mt-3 space-y-2 text-sm text-slate-200"></div>
               </div>
-            `;
-          }).join('')
-        : `<div class="text-sm text-slate-300">${state.lang === 'vi' ? 'Chưa chọn benefit nào.' : 'No benefits selected yet.'}</div>`;
-      document.getElementById('summaryBenefits').innerHTML = benefitHtml;
 
-      document.getElementById('summaryFootnote').innerHTML = state.lang === 'vi'
-        ? 'Mô phỏng theo logic từ file pricing hiện tại: Access tính theo giá thời hạn đã chọn; benefits giảm giá theo thứ tự chọn: benefit 1 = -10%, benefit 2 = -15%, benefit 3 trở đi = -20%.'
-        : 'Simulation based on the current pricing file: access is charged by selected duration; benefits receive sequential discounts: benefit 1 = -10%, benefit 2 = -15%, benefit 3 onward = -20%.';
-    }
+              <div class="rounded-2xl bg-red-600 p-5">
+                <div class="lang-vi text-xs uppercase tracking-[0.2em] text-red-100 font-bold">
+                  Estimated monthly investment
+                </div>
+                <div class="lang-en lang-hidden text-xs uppercase tracking-[0.2em] text-red-100 font-bold">
+                  Estimated monthly investment
+                </div>
+                <div id="summaryMonthly" class="mt-2 text-4xl font-black text-white">0</div>
+              </div>
 
-    function renderAll() {
-      recalcBenefitsForDuration();
-      renderDurations();
-      renderAccess();
-      renderBenefits();
-      renderSummary();
-    }
+              <div class="rounded-2xl bg-white p-5 text-slate-900">
+                <div class="lang-vi text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">
+                  Total contract value
+                </div>
+                <div class="lang-en lang-hidden text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">
+                  Total contract value
+                </div>
+                <div id="summaryTotal" class="mt-2 text-3xl font-black">0</div>
+                <div id="summaryFootnote" class="mt-2 text-xs text-slate-500 leading-6"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    function selectDuration(months) {
-      state.duration = months;
-      renderAll();
-    }
+    <!-- BOTTOM CARDS -->
+    <section class="mt-8 grid lg:grid-cols-3 gap-6">
+      <div class="rounded-3xl bg-white p-6 soft-card border border-slate-200">
+        <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center text-xl font-black">1</div>
+        <h2 class="lang-vi mt-4 text-xl font-extrabold text-slate-900">Nói đúng logic</h2>
+        <h2 class="lang-en lang-hidden mt-4 text-xl font-extrabold text-slate-900">Use the right logic</h2>
+        <p class="lang-vi mt-3 text-slate-600 leading-7">
+          Không bán chuyện “đắt hơn hay rẻ hơn”. Hãy bán cảm giác chủ động: khách có thể tự tạo membership phù hợp với họ.
+        </p>
+        <p class="lang-en lang-hidden mt-3 text-slate-600 leading-7">
+          Do not sell the story of “higher” or “lower” price. Sell the feeling of control: clients can now build a membership that fits them.
+        </p>
+      </div>
 
-    function selectAccess(id) {
-      const item = accessData.find(x => x.id === id);
-      if (!item || !item.prices[state.duration]) return;
-      state.access = id;
-      renderAll();
-    }
+      <div class="rounded-3xl bg-white p-6 soft-card border border-slate-200">
+        <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center text-xl font-black">2</div>
+        <h2 class="lang-vi mt-4 text-xl font-extrabold text-slate-900">Tận dụng giai đoạn chuyển tiếp</h2>
+        <h2 class="lang-en lang-hidden mt-4 text-xl font-extrabold text-slate-900">Use the transition period</h2>
+        <p class="lang-vi mt-3 text-slate-600 leading-7">
+          Nhấn mạnh đây là thời điểm cuối cùng để renew hoặc gia hạn sản phẩm đang lưu hành trước khi hệ mới trở thành hướng chính.
+        </p>
+        <p class="lang-en lang-hidden mt-3 text-slate-600 leading-7">
+          Emphasize that this is the final period to renew or extend the current products before the new system becomes the main direction.
+        </p>
+      </div>
 
-    function toggleBenefit(id) {
-      const item = getBenefitById(id);
-      if (!item || !item.prices[state.duration]) return;
-      if (state.benefits.includes(id)) {
-        state.benefits = state.benefits.filter(x => x !== id);
-      } else {
-        state.benefits.push(id);
-      }
-      renderAll();
-    }
+      <div class="rounded-3xl bg-white p-6 soft-card border border-slate-200">
+        <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center text-xl font-black">3</div>
+        <h2 class="lang-vi mt-4 text-xl font-extrabold text-slate-900">Mục tiêu cuối cùng</h2>
+        <h2 class="lang-en lang-hidden mt-4 text-xl font-extrabold text-slate-900">Ultimate objective</h2>
+        <p class="lang-vi mt-3 text-slate-600 leading-7">
+          Giúp đội ngũ chuyển từ mindset “bundle + giá” sang mindset “lifestyle solution + personalized design”.
+        </p>
+        <p class="lang-en lang-hidden mt-3 text-slate-600 leading-7">
+          Help the team move from a “bundle + price” mindset to a “lifestyle solution + personalized design” mindset.
+        </p>
+      </div>
+    </section>
 
-    document.getElementById('langToggle').addEventListener('click', () => {
-      setLanguage(state.lang === 'vi' ? 'en' : 'vi');
-    });
+    <!-- CLOSING -->
+    <section class="mt-8 rounded-[28px] closing-panel text-white p-6 sm:p-8 soft-card">
+      <div class="grid lg:grid-cols-[1fr_auto] gap-6 items-center">
+        <div>
+          <p class="lang-vi text-sm font-bold uppercase tracking-[0.2em] text-red-100">
+            Suggested script
+          </p>
+          <p class="lang-en lang-hidden text-sm font-bold uppercase tracking-[0.2em] text-red-100">
+            Suggested script
+          </p>
 
-    window.selectDuration = selectDuration;
-    window.selectAccess = selectAccess;
-    window.toggleBenefit = toggleBenefit;
+          <h2 class="lang-vi mt-2 text-2xl sm:text-3xl font-black">
+            “Giờ đây anh/chị có thể tự thiết kế membership theo đúng nhu cầu của mình.”
+          </h2>
+          <h2 class="lang-en lang-hidden mt-2 text-2xl sm:text-3xl font-black">
+            “Now you can design your own membership based on your actual needs.”
+          </h2>
 
-    setLanguage('vi');
-  </script>
+          <p class="lang-vi mt-3 text-red-50 leading-7">
+            Và trong giai đoạn hiện tại, nếu anh/chị vẫn muốn giữ các sản phẩm đang lưu hành, đây là thời điểm cuối cùng để renew hoặc gia hạn.
+          </p>
+          <p class="lang-en lang-hidden mt-3 text-red-50 leading-7">
+            And during the current period, if you still want to keep the products currently in circulation, this is the final opportunity to renew or extend them.
+          </p>
+        </div>
+
+        <div class="rounded-2xl bg-white/15 border border-white/20 px-5 py-4 text-sm leading-7 max-w-md">
+          <p class="lang-vi">
+            Lưu ý: trang này dùng để đào tạo nhân viên và mô phỏng cách show option cho khách. Có thể tiếp tục tinh chỉnh giá, wording và rule promo sau.
+          </p>
+          <p class="lang-en lang-hidden">
+            Note: this page is for staff training and for demonstrating options to clients. Pricing, wording, and promotional rules can be refined further later.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./assets/js/data.js"></script>
+  <script src="./assets/js/i18n.js"></script>
+  <script src="./assets/js/app.js"></script>
 </body>
 </html>
