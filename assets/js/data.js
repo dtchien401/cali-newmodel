@@ -59,24 +59,44 @@ window.APP_DATA = {
           id: "gx",
           name: { vi: "GX", en: "GX" },
           unit: { vi: "/class", en: "/class" },
+          retailPrice: 300000,
+          retailText: {
+            vi: "Giá lẻ: 300,000 VND / class",
+            en: "Retail price: 300,000 VND / class"
+          },
           prices: { 6: 1020000, 12: 1800000, 24: 3120000, 36: 3600000 }
         },
         {
           id: "yoga",
           name: { vi: "Yoga", en: "Yoga" },
           unit: { vi: "/class", en: "/class" },
+          retailPrice: 300000,
+          retailText: {
+            vi: "Giá lẻ: 300,000 VND / class",
+            en: "Retail price: 300,000 VND / class"
+          },
           prices: { 6: 1020000, 12: 1800000, 24: 3120000, 36: 3600000 }
         },
         {
           id: "towel",
           name: { vi: "Towel", en: "Towel" },
           unit: { vi: "/day/check-in", en: "/day/check-in" },
+          retailPrice: 400000,
+          retailText: {
+            vi: "Giá lẻ: 400,000 VND / day/check-in",
+            en: "Retail price: 400,000 VND / day/check-in"
+          },
           prices: { 6: 1280000, 12: 2250000, 24: 3900000, 36: 4500000 }
         },
         {
           id: "water",
           name: { vi: "Daily mineral water", en: "Daily mineral water" },
           unit: { vi: "/day/check-in", en: "/day/check-in" },
+          retailPrice: 180000,
+          retailText: {
+            vi: "Giá lẻ: 180,000 VND / day/check-in",
+            en: "Retail price: 180,000 VND / day/check-in"
+          },
           prices: { 6: 920000, 12: 1620000, 24: 2810000, 36: 3240000 }
         }
       ]
@@ -89,12 +109,22 @@ window.APP_DATA = {
           id: "guest",
           name: { vi: "1 non-fixed guest", en: "1 non-fixed guest" },
           unit: { vi: "served as Gold", en: "served as Gold" },
+          retailPrice: 224500,
+          retailText: {
+            vi: "Giá lẻ: 224,500 VND / usage",
+            en: "Retail price: 224,500 VND / usage"
+          },
           prices: { 6: 1140000, 12: 2020000, 24: 3500000, 36: 4040000 }
         },
         {
           id: "locker",
           name: { vi: "Locker", en: "Locker" },
           unit: { vi: "/month", en: "/month" },
+          retailPrice: 200000,
+          retailText: {
+            vi: "Giá lẻ: 200,000 VND / month",
+            en: "Retail price: 200,000 VND / month"
+          },
           prices: { 6: 1020000, 12: 1800000, 24: 3120000, 36: 3600000 }
         }
       ]
@@ -107,12 +137,22 @@ window.APP_DATA = {
           id: "drink",
           name: { vi: "Daily special drink", en: "Daily special drink" },
           unit: { vi: "/day/check-in", en: "/day/check-in" },
+          retailPrice: 480000,
+          retailText: {
+            vi: "Giá lẻ: 480,000 VND / day/check-in",
+            en: "Retail price: 480,000 VND / day/check-in"
+          },
           prices: { 6: 2450000, 12: 4320000, 24: 7490000, 36: 8640000 }
         },
         {
           id: "hpx",
           name: { vi: "HPX / PT / YI 30'", en: "HPX / PT / YI 30'" },
           unit: { vi: "2 sessions 30'/month", en: "2 sessions 30'/month" },
+          retailPrice: 576000,
+          retailText: {
+            vi: "Giá lẻ: 576,000 VND / 2 sessions 30'/month",
+            en: "Retail price: 576,000 VND / 2 sessions 30'/month"
+          },
           prices: { 6: 2940000, 12: 5180000, 24: 8990000, 36: 10370000 }
         }
       ]
@@ -125,12 +165,22 @@ window.APP_DATA = {
           id: "parking",
           name: { vi: "Car parking", en: "Car parking" },
           unit: { vi: "/time", en: "/time" },
+          retailPrice: 800000,
+          retailText: {
+            vi: "Giá lẻ: 800,000 VND / time",
+            en: "Retail price: 800,000 VND / time"
+          },
           prices: { 6: 4080000, 12: 7200000 }
         },
         {
           id: "bathrobe",
           name: { vi: "Bathrobe", en: "Bathrobe" },
           unit: { vi: "/time", en: "/time" },
+          retailPrice: 250000,
+          retailText: {
+            vi: "Giá lẻ: 250,000 VND / time",
+            en: "Retail price: 250,000 VND / time"
+          },
           prices: { 6: 1280000, 12: 2250000, 24: 3900000, 36: 4500000 }
         }
       ]
