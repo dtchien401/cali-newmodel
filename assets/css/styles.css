@@ -82,7 +82,7 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
-/* HERO STORY */
+/* STORY */
 .story-tabs {
   align-items: stretch;
 }
@@ -116,7 +116,7 @@ button:focus-visible {
 }
 
 .story-panel {
-  min-height: 260px;
+  min-height: 430px;
   position: relative;
 }
 
@@ -135,7 +135,7 @@ button:focus-visible {
   }
 }
 
-/* CONFIGURATOR CARDS */
+/* CONFIGURATOR */
 #durationOptions button,
 #accessOptions button,
 #benefitGroups button {
@@ -151,6 +151,20 @@ button:focus-visible {
 #benefitGroups button:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.07);
+}
+
+/* COMBO */
+.combo-card {
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.combo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+  border-color: #fecaca;
 }
 
 /* SUMMARY */
@@ -173,10 +187,9 @@ button:focus-visible {
   letter-spacing: -0.02em;
 }
 
-/* RESPONSIVE */
 @media (max-width: 1023px) {
   .story-panel {
-    min-height: 220px;
+    min-height: auto;
   }
 }
 
@@ -185,9 +198,5 @@ button:focus-visible {
     font-size: 11px;
     padding: 12px;
     border-radius: 14px;
-  }
-
-  .story-panel {
-    min-height: 200px;
   }
 }
