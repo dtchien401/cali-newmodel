@@ -158,12 +158,25 @@
                 ? ""
                 : `<div class="mt-1 text-sm text-slate-500">${formatVND(item.prices[state.duration] / state.duration)} / ${state.lang === "vi" ? "tháng" : "month"}</div>`;
 
+              const retailHtml = item.retailPrice
+                ? `
+                  <div class="mt-3 rounded-xl bg-slate-50 border border-slate-200 px-3 py-2">
+                    <div class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
+                      ${state.lang === "vi" ? "Single usage / Giá lẻ" : "Single usage / Retail"}
+                    </div>
+                    <div class="mt-1 text-sm font-semibold text-slate-800">
+                      ${item.retailText ? item.retailText[state.lang] : formatVND(item.retailPrice)}
+                    </div>
+                  </div>
+                `
+                : "";
+
               const valueNote = !unavailable
                 ? `
                   <div class="mt-2 text-xs font-semibold text-emerald-600">
                     ${state.lang === "vi"
-                      ? "Chọn theo gói giúp tối ưu chi phí và trải nghiệm tốt hơn"
-                      : "Choosing a package helps optimize both value and experience"}
+                      ? "Đăng ký theo gói giúp tối ưu chi phí hơn so với mua lẻ"
+                      : "Package selection gives better value than single-use purchase"}
                   </div>
                 `
                 : "";
@@ -181,6 +194,8 @@
                       ${selected ? (state.lang === "vi" ? "Đã chọn" : "Selected") : (state.lang === "vi" ? "Chọn" : "Select")}
                     </div>
                   </div>
+
+                  ${retailHtml}
 
                   <div class="mt-4">
                     <div class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
