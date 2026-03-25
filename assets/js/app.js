@@ -252,6 +252,37 @@
   window.selectAccess = selectAccess;
   window.toggleBenefit = toggleBenefit;
 
+    let storyStepIndex = 0;
+
+  function showStoryStep(index) {
+    const tabs = document.querySelectorAll(".story-tab");
+    const steps = document.querySelectorAll("[data-step-content]");
+
+    storyStepIndex = index;
+
+    tabs.forEach((tab) => {
+      const isActive = Number(tab.dataset.step) === index;
+      tab.classList.toggle("is-active", isActive);
+    });
+
+    steps.forEach((step) => {
+      const isActive = Number(step.dataset.stepContent) === index;
+      step.classList.toggle("hidden", !isActive);
+    });
+  }
+
+  function initStoryTabs() {
+    const tabs = document.querySelectorAll(".story-tab");
+    if (!tabs.length) return;
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        showStoryStep(Number(tab.dataset.step));
+      });
+    });
+
+    showStoryStep(storyStepIndex);
+  }
   document.addEventListener("DOMContentLoaded", () => {
     window.setLanguage("vi");
   });
