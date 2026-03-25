@@ -2,6 +2,8 @@
   const { durationLabels, discountByRank, accessData, benefitGroups } = window.APP_DATA;
   const state = window.APP_STATE;
 
+  let storyStepIndex = 0;
+
   function formatVND(num) {
     return new Intl.NumberFormat("en-US").format(Math.round(num)) + " VND";
   }
@@ -50,8 +52,11 @@
       const label = durationLabels[months][state.lang];
 
       return `
-        <button onclick="selectDuration(${months})" type="button"
-          class="text-left rounded-2xl border p-4 transition ${active}">
+        <button
+          onclick="selectDuration(${months})"
+          type="button"
+          class="text-left rounded-2xl border p-4 transition ${active}"
+        >
           <div class="text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">
             ${durationDiscountLabel(months)}
           </div>
@@ -78,8 +83,11 @@
         : `<div class="mt-1 text-sm text-slate-500">${formatVND(item.prices[state.duration] / state.duration)} / ${state.lang === "vi" ? "tháng" : "month"}</div>`;
 
       return `
-        <button onclick="selectAccess('${item.id}')" type="button"
-          class="text-left rounded-2xl border p-5 transition ${active} ${unavailable ? "opacity-70 cursor-not-allowed" : ""}">
+        <button
+          onclick="selectAccess('${item.id}')"
+          type="button"
+          class="text-left rounded-2xl border p-5 transition ${active} ${unavailable ? "opacity-70 cursor-not-allowed" : ""}"
+        >
           <div>
             <div class="text-lg font-black text-slate-900">${item.name[state.lang]}</div>
             <div class="mt-1 text-sm text-slate-500 leading-6">${item.remark[state.lang]}</div>
@@ -101,13 +109,14 @@
           <div class="text-sm font-black uppercase tracking-[0.18em] text-slate-500 mb-3">
             ${group.label[state.lang]}
           </div>
+
           <div class="grid md:grid-cols-2 gap-4">
             ${group.items.map((item) => {
               const selected = state.benefits.includes(item.id);
               const active = selected ? "benefit-selected" : "bg-white border-slate-200";
               const unavailable = !item.prices[state.duration];
 
-              const priceText = unavailable
+              const packagePrice = unavailable
                 ? (state.lang === "vi" ? "Không bán ở thời hạn này" : "Not sold for this duration")
                 : formatVND(item.prices[state.duration]);
 
@@ -115,20 +124,56 @@
                 ? ""
                 : `<div class="mt-1 text-sm text-slate-500">${formatVND(item.prices[state.duration] / state.duration)} / ${state.lang === "vi" ? "tháng" : "month"}</div>`;
 
+              const retailHtml = item.retailPrice
+                ? `
+                  <div class="mt-3 rounded-xl bg-slate-50 border border-slate-200 px-3 py-2">
+                    <div class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
+                      ${state.lang === "vi" ? "Single usage / Giá lẻ" : "Single usage / Retail"}
+                    </div>
+                    <div class="mt-1 text-sm font-semibold text-slate-800">
+                      ${item.retailText ? item.retailText[state.lang] : formatVND(item.retailPrice)}
+                    </div>
+                  </div>
+                `
+                : "";
+
+              const valueNote = !unavailable
+                ? `
+                  <div class="mt-2 text-xs font-semibold text-emerald-600">
+                    ${state.lang === "vi"
+                      ? "Đăng ký theo gói giúp tối ưu chi phí hơn so với mua lẻ"
+                      : "Package selection gives better value than single-use purchase"}
+                  </div>
+                `
+                : "";
+
               return `
-                <button onclick="toggleBenefit('${item.id}')" type="button"
-                  class="text-left rounded-2xl border p-5 transition ${active} ${unavailable ? "opacity-60 cursor-not-allowed" : ""}">
+                <button
+                  onclick="toggleBenefit('${item.id}')"
+                  type="button"
+                  class="text-left rounded-2xl border p-5 transition ${active} ${unavailable ? "opacity-60 cursor-not-allowed" : ""}"
+                >
                   <div class="flex items-start justify-between gap-3">
                     <div>
                       <div class="text-lg font-black text-slate-900">${item.name[state.lang]}</div>
                       <div class="mt-1 text-sm text-slate-500">${item.unit[state.lang]}</div>
                     </div>
+
                     <div class="rounded-full px-3 py-1 text-xs font-black border ${selected ? "pill-active" : "bg-white text-slate-500 border-slate-200"}">
                       ${selected ? (state.lang === "vi" ? "Đã chọn" : "Selected") : (state.lang === "vi" ? "Chọn" : "Select")}
                     </div>
                   </div>
-                  <div class="mt-4 text-xl font-black text-red-600">${priceText}</div>
-                  ${monthly}
+
+                  ${retailHtml}
+
+                  <div class="mt-4">
+                    <div class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
+                      Package price
+                    </div>
+                    <div class="mt-1 text-xl font-black text-red-600">${packagePrice}</div>
+                    ${monthly}
+                    ${valueNote}
+                  </div>
                 </button>
               `;
             }).join("")}
@@ -214,6 +259,36 @@
     }
   }
 
+  function showStoryStep(index) {
+    const tabs = document.querySelectorAll(".story-tab");
+    const steps = document.querySelectorAll("[data-step-content]");
+
+    storyStepIndex = index;
+
+    tabs.forEach((tab) => {
+      const isActive = Number(tab.dataset.step) === index;
+      tab.classList.toggle("is-active", isActive);
+    });
+
+    steps.forEach((step) => {
+      const isActive = Number(step.dataset.stepContent) === index;
+      step.classList.toggle("hidden", !isActive);
+    });
+  }
+
+  function initStoryTabs() {
+    const tabs = document.querySelectorAll(".story-tab");
+    if (!tabs.length) return;
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        showStoryStep(Number(tab.dataset.step));
+      });
+    });
+
+    showStoryStep(0);
+  }
+
   function renderAll() {
     recalcBenefitsForDuration();
     renderDurations();
@@ -252,37 +327,6 @@
   window.selectAccess = selectAccess;
   window.toggleBenefit = toggleBenefit;
 
-    let storyStepIndex = 0;
-
-  function showStoryStep(index) {
-    const tabs = document.querySelectorAll(".story-tab");
-    const steps = document.querySelectorAll("[data-step-content]");
-
-    storyStepIndex = index;
-
-    tabs.forEach((tab) => {
-      const isActive = Number(tab.dataset.step) === index;
-      tab.classList.toggle("is-active", isActive);
-    });
-
-    steps.forEach((step) => {
-      const isActive = Number(step.dataset.stepContent) === index;
-      step.classList.toggle("hidden", !isActive);
-    });
-  }
-
-  function initStoryTabs() {
-    const tabs = document.querySelectorAll(".story-tab");
-    if (!tabs.length) return;
-
-    tabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        showStoryStep(Number(tab.dataset.step));
-      });
-    });
-
-    showStoryStep(storyStepIndex);
-  }
   document.addEventListener("DOMContentLoaded", () => {
     window.setLanguage("vi");
     initStoryTabs();
