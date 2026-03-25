@@ -107,36 +107,13 @@
               const active = selected ? "benefit-selected" : "bg-white border-slate-200";
               const unavailable = !item.prices[state.duration];
 
-              const packagePrice = unavailable
+              const priceText = unavailable
                 ? (state.lang === "vi" ? "Không bán ở thời hạn này" : "Not sold for this duration")
                 : formatVND(item.prices[state.duration]);
 
               const monthly = unavailable
                 ? ""
                 : `<div class="mt-1 text-sm text-slate-500">${formatVND(item.prices[state.duration] / state.duration)} / ${state.lang === "vi" ? "tháng" : "month"}</div>`;
-
-              const retailHtml = item.retailPrice
-                ? `
-                  <div class="mt-3 rounded-xl bg-slate-50 border border-slate-200 px-3 py-2">
-                    <div class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
-                      ${state.lang === "vi" ? "Single usage / Giá lẻ" : "Single usage / Retail"}
-                    </div>
-                    <div class="mt-1 text-sm font-semibold text-slate-800">
-                      ${item.retailText ? item.retailText[state.lang] : formatVND(item.retailPrice)}
-                    </div>
-                  </div>
-                `
-                : "";
-
-              const valueNote = !unavailable
-                ? `
-                  <div class="mt-2 text-xs font-semibold text-emerald-600">
-                    ${state.lang === "vi"
-                      ? "Đăng ký theo gói giúp tối ưu chi phí hơn so với mua lẻ"
-                      : "Package selection gives better value than single-use purchase"}
-                  </div>
-                `
-                : "";
 
               return `
                 <button onclick="toggleBenefit('${item.id}')" type="button"
@@ -150,17 +127,8 @@
                       ${selected ? (state.lang === "vi" ? "Đã chọn" : "Selected") : (state.lang === "vi" ? "Chọn" : "Select")}
                     </div>
                   </div>
-
-                  ${retailHtml}
-
-                  <div class="mt-4">
-                    <div class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
-                      ${state.lang === "vi" ? "Package price" : "Package price"}
-                    </div>
-                    <div class="mt-1 text-xl font-black text-red-600">${packagePrice}</div>
-                    ${monthly}
-                    ${valueNote}
-                  </div>
+                  <div class="mt-4 text-xl font-black text-red-600">${priceText}</div>
+                  ${monthly}
                 </button>
               `;
             }).join("")}
