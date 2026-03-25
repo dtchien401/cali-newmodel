@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Membership Transition Presentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .lang-hidden { display: none; }
+    .glass { backdrop-filter: blur(10px); background: rgba(255,255,255,0.72); }
+    .hero-bg {
+      background:
+        radial-gradient(circle at top left, rgba(220,38,38,0.22), transparent 34%),
+        radial-gradient(circle at right center, rgba(239,68,68,0.16), transparent 28%),
+        linear-gradient(135deg, #0f172a 0%, #111827 45%, #1f2937 100%);
+    }
+    .soft-card {
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.10);
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-900">
+  <div class="min-h-screen hero-bg">
+    <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+      <div class="flex items-center justify-between gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
+            <span>Membership Transition</span>
+          </div>
+        </div>
+        <button id="langToggle" class="rounded-full bg-white text-slate-900 px-4 py-2 text-sm font-bold shadow hover:scale-[1.02] transition">
+          EN
+        </button>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+      <section class="rounded-[32px] overflow-hidden soft-card border border-white/15">
+        <div class="grid lg:grid-cols-[1.2fr_0.8fr]">
+          <div class="px-6 py-10 sm:px-10 sm:py-14 lg:px-12 lg:py-16 text-white">
+            <p class="lang-vi text-sm font-semibold uppercase tracking-[0.28em] text-red-200">Giai đoạn chuyển đổi sản phẩm</p>
+            <p class="lang-en lang-hidden text-sm font-semibold uppercase tracking-[0.28em] text-red-200">Product transition period</p>
+
+            <h1 class="lang-vi mt-4 text-4xl sm:text-5xl font-black leading-tight max-w-4xl">
+              Đây là thời điểm cuối cùng để khách hàng renew hoặc gia hạn các sản phẩm đang lưu hành.
+            </h1>
+            <h1 class="lang-en lang-hidden mt-4 text-4xl sm:text-5xl font-black leading-tight max-w-4xl">
+              This is the final opportunity for clients to renew or extend the currently available membership products.
+            </h1>
+
+            <p class="lang-vi mt-6 max-w-3xl text-base sm:text-lg text-slate-200 leading-8">
+              Cali đang chuẩn bị chuyển sang cấu trúc sản phẩm mới linh hoạt hơn, hiện đại hơn và định hướng trải nghiệm rõ ràng hơn. Trong giai đoạn hiện tại, các sản phẩm đang lưu hành vẫn còn áp dụng, vì vậy đây là cơ hội quan trọng để khách hàng giữ lại lựa chọn quen thuộc trước khi hệ sản phẩm mới được triển khai.
+            </p>
+            <p class="lang-en lang-hidden mt-6 max-w-3xl text-base sm:text-lg text-slate-200 leading-8">
+              Cali is preparing to move toward a more flexible, modern product structure with clearer experience-based positioning. During this transition period, the current products remain available, making this an important opportunity for clients to secure familiar options before the new product system is launched.
+            </p>
+
+            <div class="mt-8 grid sm:grid-cols-3 gap-4">
+              <div class="glass rounded-2xl p-4 border border-white/20">
+                <div class="lang-vi text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">Thông điệp 1</div>
+                <div class="lang-en lang-hidden text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">Message 1</div>
+                <div class="lang-vi mt-2 text-sm font-semibold text-slate-900">Sản phẩm hiện tại sẽ không duy trì mãi mãi</div>
+                <div class="lang-en lang-hidden mt-2 text-sm font-semibold text-slate-900">The current products will not remain indefinitely</div>
+              </div>
+              <div class="glass rounded-2xl p-4 border border-white/20">
+                <div class="lang-vi text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">Thông điệp 2</div>
+                <div class="lang-en lang-hidden text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">Message 2</div>
+                <div class="lang-vi mt-2 text-sm font-semibold text-slate-900">Khách có thể chốt quyền lợi quen thuộc ngay hôm nay</div>
+                <div class="lang-en lang-hidden mt-2 text-sm font-semibold text-slate-900">Clients can lock in familiar benefits today</div>
+              </div>
+              <div class="glass rounded-2xl p-4 border border-white/20">
+                <div class="lang-vi text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">Thông điệp 3</div>
+                <div class="lang-en lang-hidden text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">Message 3</div>
+                <div class="lang-vi mt-2 text-sm font-semibold text-slate-900">Đây là “last call” trước khi bước vào hệ mới</div>
+                <div class="lang-en lang-hidden mt-2 text-sm font-semibold text-slate-900">This is the “last call” before moving into the new system</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white px-6 py-10 sm:px-8 lg:px-10">
+            <div class="rounded-3xl bg-slate-50 border border-slate-200 p-6">
+              <div class="lang-vi text-sm font-extrabold uppercase tracking-[0.2em] text-red-600">Script ngắn cho nhân viên</div>
+              <div class="lang-en lang-hidden text-sm font-extrabold uppercase tracking-[0.2em] text-red-600">Short frontline script</div>
+
+              <div class="mt-4 rounded-2xl bg-white border border-slate-200 p-5 text-sm leading-7 text-slate-700">
+                <p class="lang-vi">“Bên em sắp chuyển sang cấu trúc sản phẩm mới, nên giai đoạn này là cơ hội cuối để anh/chị renew hoặc gia hạn những sản phẩm đang lưu hành hiện nay. Nếu anh/chị vẫn thích quyền lợi và cách sử dụng hiện tại, đây là thời điểm tốt nhất để chốt trước khi hệ mới áp dụng.”</p>
+                <p class="lang-en lang-hidden">“We will soon move to a new product structure, so this period is the final opportunity for you to renew or extend the products currently available today. If you still prefer your familiar benefits and usage model, this is the best time to secure them before the new system takes effect.”</p>
+              </div>
+
+              <div class="mt-6 grid gap-3">
+                <div class="rounded-2xl bg-white border border-slate-200 p-4">
+                  <div class="lang-vi font-bold text-slate-900">Mục tiêu khi nói với khách</div>
+                  <div class="lang-en lang-hidden font-bold text-slate-900">Objective when speaking with clients</div>
+                  <p class="lang-vi mt-2 text-sm text-slate-600">Tạo cảm giác cấp thiết nhưng tích cực: không phải ép mua, mà là giúp khách giữ lại lựa chọn họ đang quen thuộc.</p>
+                  <p class="lang-en lang-hidden mt-2 text-sm text-slate-600">Create urgency in a positive way: not to pressure the client, but to help them secure the option they already know and value.</p>
+                </div>
+                <div class="rounded-2xl bg-white border border-slate-200 p-4">
+                  <div class="lang-vi font-bold text-slate-900">Điểm cần nhấn mạnh</div>
+                  <div class="lang-en lang-hidden font-bold text-slate-900">Key points to emphasize</div>
+                  <ul class="lang-vi mt-2 text-sm text-slate-600 space-y-1 list-disc pl-5">
+                    <li>Sản phẩm hiện tại đang ở giai đoạn cuối cùng.</li>
+                    <li>Khách có thể chủ động giữ lại quyền lợi quen thuộc.</li>
+                    <li>Renew sớm giúp tránh bị động khi hệ mới được triển khai.</li>
+                  </ul>
+                  <ul class="lang-en lang-hidden mt-2 text-sm text-slate-600 space-y-1 list-disc pl-5">
+                    <li>The current products are in their final availability phase.</li>
+                    <li>Clients can proactively secure the benefits they are used to.</li>
+                    <li>Renewing early avoids uncertainty once the new system is introduced.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-8 grid lg:grid-cols-3 gap-6">
+        <div class="rounded-3xl bg-white p-6 soft-card border border-slate-200">
+          <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center text-xl font-black">1</div>
+          <h2 class="lang-vi mt-4 text-xl font-extrabold">Tại sao Cali thay đổi?</h2>
+          <h2 class="lang-en lang-hidden mt-4 text-xl font-extrabold">Why is Cali changing?</h2>
+          <p class="lang-vi mt-3 text-slate-600 leading-7">Để hướng tới một cấu trúc sản phẩm rõ hơn, dễ cá nhân hóa hơn và phù hợp hơn với định hướng trải nghiệm trong tương lai.</p>
+          <p class="lang-en lang-hidden mt-3 text-slate-600 leading-7">To move toward a clearer, more personalized product structure that better supports the future experience direction.</p>
+        </div>
+
+        <div class="rounded-3xl bg-white p-6 soft-card border border-slate-200">
+          <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center text-xl font-black">2</div>
+          <h2 class="lang-vi mt-4 text-xl font-extrabold">Nhân viên cần nói gì?</h2>
+          <h2 class="lang-en lang-hidden mt-4 text-xl font-extrabold">What should staff say?</h2>
+          <p class="lang-vi mt-3 text-slate-600 leading-7">Tập trung vào tính “last chance” của sản phẩm hiện tại, đồng thời nhấn mạnh đây là cách giúp khách bảo toàn lựa chọn họ quen dùng.</p>
+          <p class="lang-en lang-hidden mt-3 text-slate-600 leading-7">Focus on the “last chance” nature of the current products while positioning it as a way for clients to preserve the option they already know.</p>
+        </div>
+
+        <div class="rounded-3xl bg-white p-6 soft-card border border-slate-200">
+          <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center text-xl font-black">3</div>
+          <h2 class="lang-vi mt-4 text-xl font-extrabold">Call to action</h2>
+          <h2 class="lang-en lang-hidden mt-4 text-xl font-extrabold">Call to action</h2>
+          <p class="lang-vi mt-3 text-slate-600 leading-7">Khuyến khích khách renew hoặc gia hạn ngay trong giai đoạn chuyển tiếp để giữ quyền lợi của sản phẩm đang lưu hành.</p>
+          <p class="lang-en lang-hidden mt-3 text-slate-600 leading-7">Encourage the client to renew or extend during the transition period in order to secure the benefits of the current products.</p>
+        </div>
+      </section>
+
+      <section class="mt-8 rounded-[28px] bg-white border border-slate-200 p-6 sm:p-8 soft-card">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+          <div>
+            <p class="lang-vi text-sm font-bold uppercase tracking-[0.2em] text-red-600">Khung trao đổi với khách</p>
+            <p class="lang-en lang-hidden text-sm font-bold uppercase tracking-[0.2em] text-red-600">Conversation framework with clients</p>
+            <h2 class="lang-vi mt-2 text-2xl sm:text-3xl font-black">Một flow đơn giản để tư vấn dễ hơn</h2>
+            <h2 class="lang-en lang-hidden mt-2 text-2xl sm:text-3xl font-black">A simple flow to make advising easier</h2>
+          </div>
+          <div class="lang-vi text-sm text-slate-500">Dùng trực tiếp khi gặp khách hoặc gọi điện</div>
+          <div class="lang-en lang-hidden text-sm text-slate-500">Use directly in face-to-face consultations or phone calls</div>
+        </div>
+
+        <div class="mt-8 grid md:grid-cols-4 gap-4">
+          <div class="rounded-2xl bg-slate-50 border border-slate-200 p-5">
+            <div class="text-xs font-extrabold uppercase tracking-[0.2em] text-red-600">Step 1</div>
+            <div class="lang-vi mt-3 font-bold">Gợi mở</div>
+            <div class="lang-en lang-hidden mt-3 font-bold">Open</div>
+            <p class="lang-vi mt-2 text-sm text-slate-600">Anh/chị đang sử dụng sản phẩm nào và mình thấy điểm nào phù hợp nhất?</p>
+            <p class="lang-en lang-hidden mt-2 text-sm text-slate-600">Which product are you currently using, and what do you value most about it?</p>
+          </div>
+          <div class="rounded-2xl bg-slate-50 border border-slate-200 p-5">
+            <div class="text-xs font-extrabold uppercase tracking-[0.2em] text-red-600">Step 2</div>
+            <div class="lang-vi mt-3 font-bold">Tạo bối cảnh</div>
+            <div class="lang-en lang-hidden mt-3 font-bold">Set context</div>
+            <p class="lang-vi mt-2 text-sm text-slate-600">Bên em sắp chuyển sang hệ sản phẩm mới với định hướng khác rõ ràng hơn.</p>
+            <p class="lang-en lang-hidden mt-2 text-sm text-slate-600">We are moving toward a new product system with a clearer future direction.</p>
+          </div>
+          <div class="rounded-2xl bg-slate-50 border border-slate-200 p-5">
+            <div class="text-xs font-extrabold uppercase tracking-[0.2em] text-red-600">Step 3</div>
+            <div class="lang-vi mt-3 font-bold">Nêu cơ hội</div>
+            <div class="lang-en lang-hidden mt-3 font-bold">Present the opportunity</div>
+            <p class="lang-vi mt-2 text-sm text-slate-600">Hiện tại là giai đoạn cuối để gia hạn sản phẩm đang lưu hành nếu anh/chị muốn giữ quyền lợi quen thuộc.</p>
+            <p class="lang-en lang-hidden mt-2 text-sm text-slate-600">This is the final period to renew the current products if you want to keep the benefits you are familiar with.</p>
+          </div>
+          <div class="rounded-2xl bg-slate-50 border border-slate-200 p-5">
+            <div class="text-xs font-extrabold uppercase tracking-[0.2em] text-red-600">Step 4</div>
+            <div class="lang-vi mt-3 font-bold">Chốt hành động</div>
+            <div class="lang-en lang-hidden mt-3 font-bold">Close with action</div>
+            <p class="lang-vi mt-2 text-sm text-slate-600">Mình chốt renew/gia hạn ngay hôm nay để giữ lựa chọn hiện tại cho anh/chị.</p>
+            <p class="lang-en lang-hidden mt-2 text-sm text-slate-600">Let’s secure your renewal or extension today so you can keep your current option.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-8 rounded-[28px] bg-gradient-to-r from-red-600 to-red-500 text-white p-6 sm:p-8 soft-card">
+        <div class="grid lg:grid-cols-[1fr_auto] gap-6 items-center">
+          <div>
+            <p class="lang-vi text-sm font-bold uppercase tracking-[0.2em] text-red-100">Thông điệp kết thúc</p>
+            <p class="lang-en lang-hidden text-sm font-bold uppercase tracking-[0.2em] text-red-100">Closing message</p>
+            <h2 class="lang-vi mt-2 text-2xl sm:text-3xl font-black">Chốt sớm để giữ điều khách đang quen và đang thích.</h2>
+            <h2 class="lang-en lang-hidden mt-2 text-2xl sm:text-3xl font-black">Act early to keep what clients already know and value.</h2>
+          </div>
+          <div class="rounded-2xl bg-white/15 border border-white/20 px-5 py-4 text-sm leading-7 max-w-md">
+            <p class="lang-vi">Lưu ý cho đội ngũ: giữ giọng điệu tích cực, chủ động và chuyên nghiệp. Không tạo cảm giác “ép”, mà tạo cảm giác “giúp khách chốt đúng lúc”.</p>
+            <p class="lang-en lang-hidden">Team note: keep the tone positive, proactive, and professional. The goal is not to create pressure, but to help clients make the right decision at the right time.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById('langToggle');
+    let currentLang = 'vi';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.querySelectorAll('.lang-vi').forEach(el => el.classList.toggle('lang-hidden', lang !== 'vi'));
+      document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('lang-hidden', lang !== 'en'));
+      toggleBtn.textContent = lang === 'vi' ? 'EN' : 'VI';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      setLanguage(currentLang === 'vi' ? 'en' : 'vi');
+    });
+
+    setLanguage('vi');
+  </script>
+</body>
+</html>
