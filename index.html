@@ -4,17 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Membership Transition</title>
-
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
 
 <body class="page-shell">
-
   <div class="page-bg"></div>
 
   <!-- HEADER -->
-  <header class="max-w-7xl mx-auto px-6 pt-6 pb-4 flex justify-between items-center">
+  <header class="max-w-7xl mx-auto px-6 pt-6 pb-4 flex justify-between items-center relative z-10">
     <div class="font-black text-lg">CALI</div>
 
     <button id="langToggle" class="px-4 py-2 bg-red-600 text-white rounded-full font-bold">
@@ -22,127 +20,437 @@
     </button>
   </header>
 
-  <main class="max-w-7xl mx-auto px-6 pb-16">
+  <main class="max-w-7xl mx-auto px-6 pb-16 relative z-10">
 
     <!-- HERO STORY -->
-    <section class="rounded-[32px] soft-card hero-surface p-10">
+    <section class="rounded-[32px] overflow-hidden soft-card hero-surface border border-white/70 p-8 lg:p-10">
+      <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-8">
 
-      <!-- STEP NAV -->
-      <div class="story-tabs grid grid-cols-4 gap-3 max-w-xl">
-        <button class="story-tab" data-step="0">01</button>
-        <button class="story-tab" data-step="1">02</button>
-        <button class="story-tab" data-step="2">03</button>
-        <button class="story-tab" data-step="3">04</button>
-      </div>
-
-      <!-- CONTENT -->
-      <div class="story-panel mt-10">
-
-        <!-- STEP 1 -->
-        <div class="story-step" data-step-content="0">
-          <h1 class="text-5xl font-black leading-tight">
-            Trước đây khách phải chọn <span class="text-red-600">bundle cố định</span>
-          </h1>
-          <p class="mt-4 text-lg text-slate-600">
-            Và thường trả tiền cho những thứ không sử dụng.
+        <!-- LEFT -->
+        <div>
+          <p class="lang-vi text-sm font-semibold uppercase tracking-[0.28em] text-red-500">
+            Giai đoạn chuyển đổi sản phẩm
           </p>
+          <p class="lang-en lang-hidden text-sm font-semibold uppercase tracking-[0.28em] text-red-500">
+            Product transition period
+          </p>
+
+          <!-- STEP NAV -->
+          <div class="story-tabs grid grid-cols-2 md:grid-cols-4 gap-3 mt-6 max-w-2xl">
+            <button class="story-tab" data-step="0">
+              <span class="lang-vi">Bước 1</span>
+              <span class="lang-en lang-hidden">Step 1</span>
+            </button>
+            <button class="story-tab" data-step="1">
+              <span class="lang-vi">Bước 2</span>
+              <span class="lang-en lang-hidden">Step 2</span>
+            </button>
+            <button class="story-tab" data-step="2">
+              <span class="lang-vi">Bước 3</span>
+              <span class="lang-en lang-hidden">Step 3</span>
+            </button>
+            <button class="story-tab" data-step="3">
+              <span class="lang-vi">Bước 4</span>
+              <span class="lang-en lang-hidden">Step 4</span>
+            </button>
+          </div>
+
+          <!-- STORY CONTENT -->
+          <div class="story-panel mt-8">
+
+            <!-- STEP 1 -->
+            <div class="story-step" data-step-content="0">
+              <div class="inline-flex items-center rounded-full bg-red-50 text-red-600 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.2em]">
+                <span class="lang-vi">Mô hình cũ</span>
+                <span class="lang-en lang-hidden">Old model</span>
+              </div>
+
+              <h1 class="lang-vi mt-4 text-4xl lg:text-5xl font-black leading-tight text-slate-900">
+                Trước đây khách thường phải chọn <span class="text-red-600">bundle cố định</span>
+              </h1>
+              <h1 class="lang-en lang-hidden mt-4 text-4xl lg:text-5xl font-black leading-tight text-slate-900">
+                In the past, clients often had to choose <span class="text-red-600">fixed bundles</span>
+              </h1>
+
+              <p class="lang-vi mt-5 text-lg text-slate-600 leading-8 max-w-3xl">
+                Và nhiều khi phải trả tiền cho những quyền lợi không thật sự sử dụng thường xuyên.
+              </p>
+              <p class="lang-en lang-hidden mt-5 text-lg text-slate-600 leading-8 max-w-3xl">
+                And in many cases, they paid for benefits they did not actually use regularly.
+              </p>
+
+              <div class="mt-6 grid md:grid-cols-2 gap-4">
+                <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                  <div class="text-xs font-black uppercase tracking-[0.18em] text-slate-500">
+                    <span class="lang-vi">Thực tế</span>
+                    <span class="lang-en lang-hidden">Reality</span>
+                  </div>
+                  <div class="lang-vi mt-2 text-xl font-black text-slate-900">
+                    Bundle dẫn dắt quyết định mua
+                  </div>
+                  <div class="lang-en lang-hidden mt-2 text-xl font-black text-slate-900">
+                    Bundles drove the buying decision
+                  </div>
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                  <div class="text-xs font-black uppercase tracking-[0.18em] text-slate-500">
+                    <span class="lang-vi">Vấn đề</span>
+                    <span class="lang-en lang-hidden">Problem</span>
+                  </div>
+                  <div class="lang-vi mt-2 text-xl font-black text-slate-900">
+                    Khách không luôn cảm thấy phù hợp
+                  </div>
+                  <div class="lang-en lang-hidden mt-2 text-xl font-black text-slate-900">
+                    Clients did not always feel the fit was right
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="story-step hidden" data-step-content="1">
+              <div class="inline-flex items-center rounded-full bg-red-50 text-red-600 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.2em]">
+                <span class="lang-vi">Điểm thay đổi</span>
+                <span class="lang-en lang-hidden">The shift</span>
+              </div>
+
+              <h1 class="lang-vi mt-4 text-4xl lg:text-5xl font-black leading-tight text-slate-900">
+                Đã đến lúc ngừng bán <span class="text-red-600">“giá”</span>
+              </h1>
+              <h1 class="lang-en lang-hidden mt-4 text-4xl lg:text-5xl font-black leading-tight text-slate-900">
+                It is time to stop selling <span class="text-red-600">“price”</span>
+              </h1>
+
+              <p class="lang-vi mt-5 text-lg text-slate-600 leading-8 max-w-3xl">
+                Và bắt đầu bán sự phù hợp, tính cá nhân hóa và khả năng kiểm soát chi tiêu theo đúng lifestyle của từng khách hàng.
+              </p>
+              <p class="lang-en lang-hidden mt-5 text-lg text-slate-600 leading-8 max-w-3xl">
+                And start selling fit, personalization, and spending control based on each client’s lifestyle.
+              </p>
+
+              <div class="mt-6 grid md:grid-cols-3 gap-4">
+                <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                  <div class="text-xs font-black uppercase tracking-[0.18em] text-slate-500">1</div>
+                  <div class="lang-vi mt-2 text-xl font-black text-slate-900">Flexibility</div>
+                  <div class="lang-en lang-hidden mt-2 text-xl font-black text-slate-900">Flexibility</div>
+                  <div class="lang-vi mt-2 text-slate-600">Không bị bundle cứng</div>
+                  <div class="lang-en lang-hidden mt-2 text-slate-600">No rigid bundles</div>
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                  <div class="text-xs font-black uppercase tracking-[0.18em] text-slate-500">2</div>
+                  <div class="lang-vi mt-2 text-xl font-black text-slate-900">Personalization</div>
+                  <div class="lang-en lang-hidden mt-2 text-xl font-black text-slate-900">Personalization</div>
+                  <div class="lang-vi mt-2 text-slate-600">Chọn cái mình thật sự dùng</div>
+                  <div class="lang-en lang-hidden mt-2 text-slate-600">Choose what is truly used</div>
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                  <div class="text-xs font-black uppercase tracking-[0.18em] text-slate-500">3</div>
+                  <div class="lang-vi mt-2 text-xl font-black text-slate-900">Control</div>
+                  <div class="lang-en lang-hidden mt-2 text-xl font-black text-slate-900">Control</div>
+                  <div class="lang-vi mt-2 text-slate-600">Kiểm soát trải nghiệm và chi tiêu</div>
+                  <div class="lang-en lang-hidden mt-2 text-slate-600">Control experience and spending</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="story-step hidden" data-step-content="2">
+              <div class="inline-flex items-center rounded-full bg-red-50 text-red-600 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.2em]">
+                <span class="lang-vi">Cách nói mới</span>
+                <span class="lang-en lang-hidden">New selling language</span>
+              </div>
+
+              <h1 class="lang-vi mt-4 text-4xl lg:text-5xl font-black leading-tight text-slate-900">
+                Giờ đây khách có thể <span class="text-red-600">tự thiết kế membership</span>
+              </h1>
+              <h1 class="lang-en lang-hidden mt-4 text-4xl lg:text-5xl font-black leading-tight text-slate-900">
+                Now clients can <span class="text-red-600">design their own membership</span>
+              </h1>
+
+              <p class="lang-vi mt-5 text-lg text-slate-600 leading-8 max-w-3xl">
+                Theo đúng lifestyle và nhu cầu tập luyện của mình, thay vì phải fit vào một package cố định.
+              </p>
+              <p class="lang-en lang-hidden mt-5 text-lg text-slate-600 leading-8 max-w-3xl">
+                Based on their own lifestyle and training needs, instead of trying to fit into a fixed package.
+              </p>
+
+              <div class="mt-6 grid md:grid-cols-2 gap-4">
+                <div class="rounded-2xl border border-red-200 bg-red-50 p-5">
+                  <div class="text-xs font-black uppercase tracking-[0.18em] text-red-700">
+                    <span class="lang-vi">Không nói</span>
+                    <span class="lang-en lang-hidden">Do not say</span>
+                  </div>
+                  <div class="lang-vi mt-2 text-xl font-black text-red-900">
+                    “Giá mới cao hơn”, “Không còn bundle nữa”
+                  </div>
+                  <div class="lang-en lang-hidden mt-2 text-xl font-black text-red-900">
+                    “The new price is higher”, “There are no more bundles”
+                  </div>
+                </div>
+
+                <div class="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+                  <div class="text-xs font-black uppercase tracking-[0.18em] text-emerald-700">
+                    <span class="lang-vi">Phải nói</span>
+                    <span class="lang-en lang-hidden">Say this</span>
+                  </div>
+                  <div class="lang-vi mt-2 text-xl font-black text-emerald-900">
+                    “Anh/chị có thể tự thiết kế membership phù hợp với mình”
+                  </div>
+                  <div class="lang-en lang-hidden mt-2 text-xl font-black text-emerald-900">
+                    “You can design a membership that truly fits you”
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 4 -->
+            <div class="story-step hidden" data-step-content="3">
+              <div class="inline-flex items-center rounded-full bg-red-50 text-red-600 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.2em]">
+                <span class="lang-vi">Cơ hội hiện tại</span>
+                <span class="lang-en lang-hidden">Current opportunity</span>
+              </div>
+
+              <h1 class="lang-vi mt-4 text-4xl lg:text-5xl font-black leading-tight text-slate-900">
+                Đây là <span class="text-red-600">giai đoạn cuối</span> để khách renew hoặc gia hạn sản phẩm hiện tại
+              </h1>
+              <h1 class="lang-en lang-hidden mt-4 text-4xl lg:text-5xl font-black leading-tight text-slate-900">
+                This is the <span class="text-red-600">final period</span> for clients to renew or extend current products
+              </h1>
+
+              <p class="lang-vi mt-5 text-lg text-slate-600 leading-8 max-w-3xl">
+                Nếu khách vẫn thích quyền lợi và cách sử dụng quen thuộc, đây là thời điểm tốt nhất để chốt trước khi hướng sản phẩm mới được áp dụng rộng rãi.
+              </p>
+              <p class="lang-en lang-hidden mt-5 text-lg text-slate-600 leading-8 max-w-3xl">
+                If clients still prefer their familiar benefits and usage model, this is the best time to secure them before the new direction is applied broadly.
+              </p>
+
+              <div class="mt-6 inline-flex items-center gap-2 rounded-2xl bg-red-600 text-white px-6 py-3 font-bold shadow-lg">
+                <span class="lang-vi">Renew now để giữ lựa chọn quen thuộc</span>
+                <span class="lang-en lang-hidden">Renew now to secure familiar choices</span>
+              </div>
+            </div>
+
+          </div>
         </div>
 
-        <!-- STEP 2 -->
-        <div class="story-step hidden" data-step-content="1">
-          <h1 class="text-5xl font-black leading-tight">
-            Đã đến lúc ngừng bán <span class="text-red-600">giá</span>
-          </h1>
-          <p class="mt-4 text-lg text-slate-600">
-            Và bắt đầu bán sự phù hợp với từng khách hàng.
-          </p>
-        </div>
+        <!-- RIGHT -->
+        <div>
+          <div class="rounded-3xl border border-slate-200 bg-white/80 p-6 h-full">
+            <div class="lang-vi text-sm font-extrabold uppercase tracking-[0.2em] text-red-600">
+              Tóm tắt nhanh cho nhân viên
+            </div>
+            <div class="lang-en lang-hidden text-sm font-extrabold uppercase tracking-[0.2em] text-red-600">
+              Quick guide for staff
+            </div>
 
-        <!-- STEP 3 -->
-        <div class="story-step hidden" data-step-content="2">
-          <h1 class="text-5xl font-black leading-tight">
-            Khách có thể <span class="text-red-600">tự thiết kế membership</span>
-          </h1>
-          <p class="mt-4 text-lg text-slate-600">
-            Theo đúng lifestyle và nhu cầu tập luyện.
-          </p>
-        </div>
+            <div class="mt-5 space-y-4">
+              <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                <div class="text-xs font-black uppercase tracking-[0.18em] text-slate-500">
+                  <span class="lang-vi">Mindset mới</span>
+                  <span class="lang-en lang-hidden">New mindset</span>
+                </div>
+                <p class="lang-vi mt-2 text-slate-700 leading-7">
+                  Không bán “bundle + giá”. Hãy bán “sự phù hợp + quyền kiểm soát”.
+                </p>
+                <p class="lang-en lang-hidden mt-2 text-slate-700 leading-7">
+                  Stop selling “bundle + price”. Sell “fit + control”.
+                </p>
+              </div>
 
-        <!-- STEP 4 -->
-        <div class="story-step hidden" data-step-content="3">
-          <h1 class="text-5xl font-black leading-tight">
-            Đây là <span class="text-red-600">giai đoạn cuối</span>
-          </h1>
-          <p class="mt-4 text-lg text-slate-600">
-            Để khách renew và giữ sản phẩm hiện tại.
-          </p>
+              <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                <div class="text-xs font-black uppercase tracking-[0.18em] text-slate-500">
+                  <span class="lang-vi">3 pillars</span>
+                  <span class="lang-en lang-hidden">3 pillars</span>
+                </div>
+                <p class="mt-2 text-slate-700 leading-7">
+                  Flexibility. Personalization. Control.
+                </p>
+              </div>
 
-          <div class="mt-6 inline-block bg-red-600 text-white px-6 py-3 rounded-xl font-bold">
-            Renew now
+              <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                <div class="text-xs font-black uppercase tracking-[0.18em] text-slate-500">
+                  <span class="lang-vi">Call to action</span>
+                  <span class="lang-en lang-hidden">Call to action</span>
+                </div>
+                <p class="lang-vi mt-2 text-slate-700 leading-7">
+                  Trong giai đoạn hiện tại, khuyến khích khách renew/gia hạn ngay nếu muốn giữ sản phẩm quen thuộc.
+                </p>
+                <p class="lang-en lang-hidden mt-2 text-slate-700 leading-7">
+                  During the current period, encourage clients to renew or extend now if they want to keep familiar products.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
       </div>
-
     </section>
 
     <!-- CONFIGURATOR -->
     <section class="mt-10 rounded-3xl bg-white border border-slate-200 p-6 soft-card">
-
-      <div class="flex justify-between items-end mb-6">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6">
         <div>
-          <h2 class="text-2xl font-black">
-            Design your own membership
-          </h2>
-          <p class="text-sm text-slate-500">
-            Pricing simulation based on current structure
+          <p class="lang-vi text-sm font-bold uppercase tracking-[0.2em] text-red-600">
+            Demo cấu trúc mới
           </p>
+          <p class="lang-en lang-hidden text-sm font-bold uppercase tracking-[0.2em] text-red-600">
+            New structure demo
+          </p>
+
+          <h2 class="lang-vi mt-2 text-2xl font-black text-slate-900">
+            Tự thiết kế membership theo lifestyle và nhu cầu tập luyện
+          </h2>
+          <h2 class="lang-en lang-hidden mt-2 text-2xl font-black text-slate-900">
+            Design your own membership based on lifestyle and training needs
+          </h2>
+        </div>
+
+        <div class="lang-vi text-sm text-slate-500">
+          Logic giá mô phỏng theo file pricing bạn gửi
+        </div>
+        <div class="lang-en lang-hidden text-sm text-slate-500">
+          Pricing simulation based on the file you shared
         </div>
       </div>
 
-      <!-- STEP 1 -->
+      <!-- DURATION -->
       <div class="mb-6">
-        <div class="font-bold mb-2">Duration</div>
-        <div id="durationOptions" class="grid grid-cols-4 gap-3"></div>
+        <div class="lang-vi font-bold mb-2 text-slate-900">Bước 1 — Chọn thời hạn</div>
+        <div class="lang-en lang-hidden font-bold mb-2 text-slate-900">Step 1 — Select duration</div>
+        <div id="durationOptions" class="grid grid-cols-2 md:grid-cols-4 gap-3"></div>
       </div>
 
-      <!-- STEP 2 -->
+      <!-- ACCESS -->
       <div class="mb-6">
-        <div class="font-bold mb-2">Gym Access</div>
+        <div class="lang-vi font-bold mb-2 text-slate-900">Bước 2 — Chọn gym access</div>
+        <div class="lang-en lang-hidden font-bold mb-2 text-slate-900">Step 2 — Select gym access</div>
         <div id="accessOptions" class="grid md:grid-cols-2 gap-4"></div>
       </div>
 
-      <!-- STEP 3 -->
+      <!-- BENEFITS -->
       <div>
-        <div class="font-bold mb-2">Benefits</div>
-        <div id="benefitGroups"></div>
-      </div>
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-3">
+          <div>
+            <div class="lang-vi font-bold text-slate-900">Bước 3 — Chọn benefits</div>
+            <div class="lang-en lang-hidden font-bold text-slate-900">Step 3 — Select benefits</div>
+          </div>
 
+          <div class="rounded-full bg-slate-50 border border-slate-200 px-3 py-1.5 text-xs font-bold text-slate-600">
+            <span class="lang-vi">Discount theo số benefit: 1st -10%, 2nd -15%, từ 3rd trở đi -20%</span>
+            <span class="lang-en lang-hidden">Benefit discount by order: 1st -10%, 2nd -15%, 3rd onward -20%</span>
+          </div>
+        </div>
+
+        <div id="benefitGroups" class="space-y-6"></div>
+      </div>
     </section>
 
     <!-- SUMMARY -->
-    <section class="mt-10 rounded-3xl summary-panel p-6 text-white">
+    <section class="mt-10 rounded-3xl summary-panel p-6 text-white soft-card">
+      <div class="flex items-center justify-between gap-3">
+        <div>
+          <div class="lang-vi text-sm uppercase text-slate-400 font-bold tracking-[0.2em]">Summary</div>
+          <div class="lang-en lang-hidden text-sm uppercase text-slate-400 font-bold tracking-[0.2em]">Summary</div>
+          <h3 class="lang-vi mt-2 text-2xl font-black">Membership của khách</h3>
+          <h3 class="lang-en lang-hidden mt-2 text-2xl font-black">Client membership</h3>
+        </div>
 
-      <div class="text-sm uppercase text-slate-400">Summary</div>
+        <div id="benefitCountBadge" class="rounded-full bg-red-500 px-3 py-1 text-xs font-black text-white">
+          0
+        </div>
+      </div>
 
-      <div class="mt-4">
-        <div id="summaryDuration"></div>
-        <div id="summaryAccess"></div>
-        <div id="summaryAccessRemark" class="text-sm text-slate-300"></div>
+      <div class="mt-6 grid md:grid-cols-3 gap-4">
+        <div class="rounded-2xl bg-white/5 border border-white/10 p-4">
+          <div class="lang-vi text-xs uppercase text-slate-300 font-bold tracking-[0.18em]">Duration</div>
+          <div class="lang-en lang-hidden text-xs uppercase text-slate-300 font-bold tracking-[0.18em]">Duration</div>
+          <div id="summaryDuration" class="mt-2 text-lg font-black text-white"></div>
+        </div>
+
+        <div class="rounded-2xl bg-white/5 border border-white/10 p-4 md:col-span-2">
+          <div class="lang-vi text-xs uppercase text-slate-300 font-bold tracking-[0.18em]">Gym access</div>
+          <div class="lang-en lang-hidden text-xs uppercase text-slate-300 font-bold tracking-[0.18em]">Gym access</div>
+          <div id="summaryAccess" class="mt-2 text-lg font-black text-white"></div>
+          <div id="summaryAccessRemark" class="mt-1 text-sm text-slate-300"></div>
+        </div>
+      </div>
+
+      <div class="mt-6 grid md:grid-cols-2 gap-4">
+        <div class="rounded-2xl bg-red-600 p-5">
+          <div class="lang-vi text-xs uppercase text-red-100 font-bold tracking-[0.18em]">
+            Estimated monthly investment
+          </div>
+          <div class="lang-en lang-hidden text-xs uppercase text-red-100 font-bold tracking-[0.18em]">
+            Estimated monthly investment
+          </div>
+          <div id="summaryMonthly" class="mt-2 text-4xl font-black text-white"></div>
+        </div>
+
+        <div class="rounded-2xl bg-white p-5 text-slate-900">
+          <div class="lang-vi text-xs uppercase text-slate-500 font-bold tracking-[0.18em]">
+            Total contract value
+          </div>
+          <div class="lang-en lang-hidden text-xs uppercase text-slate-500 font-bold tracking-[0.18em]">
+            Total contract value
+          </div>
+          <div id="summaryTotal" class="mt-2 text-3xl font-black"></div>
+          <div id="summaryFootnote" class="mt-2 text-xs text-slate-500 leading-6"></div>
+        </div>
       </div>
 
       <div class="mt-6">
-        <div class="text-sm text-slate-400">Monthly</div>
-        <div id="summaryMonthly" class="text-3xl font-black"></div>
+        <div class="lang-vi text-xs uppercase text-slate-300 font-bold tracking-[0.18em] mb-3">
+          Benefits đã chọn
+        </div>
+        <div class="lang-en lang-hidden text-xs uppercase text-slate-300 font-bold tracking-[0.18em] mb-3">
+          Selected benefits
+        </div>
+        <div id="summaryBenefits" class="space-y-2"></div>
       </div>
+    </section>
 
-      <div class="mt-6">
-        <div class="text-sm text-slate-400">Total</div>
-        <div id="summaryTotal" class="text-2xl font-black"></div>
+    <!-- BOTTOM TRAINING NOTE -->
+    <section class="mt-10 rounded-3xl border border-slate-200 bg-white p-6 soft-card">
+      <div class="grid lg:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+          <div class="text-xs font-black uppercase tracking-[0.18em] text-red-600">01</div>
+          <div class="lang-vi mt-2 text-xl font-black text-slate-900">Nói đúng logic</div>
+          <div class="lang-en lang-hidden mt-2 text-xl font-black text-slate-900">Use the right logic</div>
+          <p class="lang-vi mt-3 text-slate-600 leading-7">
+            Không bán chuyện “đắt hơn hay rẻ hơn”. Hãy bán cảm giác chủ động, phù hợp và kiểm soát.
+          </p>
+          <p class="lang-en lang-hidden mt-3 text-slate-600 leading-7">
+            Do not sell “higher” or “lower” price. Sell fit, control, and ownership.
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+          <div class="text-xs font-black uppercase tracking-[0.18em] text-red-600">02</div>
+          <div class="lang-vi mt-2 text-xl font-black text-slate-900">Tận dụng giai đoạn chuyển tiếp</div>
+          <div class="lang-en lang-hidden mt-2 text-xl font-black text-slate-900">Use the transition period</div>
+          <p class="lang-vi mt-3 text-slate-600 leading-7">
+            Nhấn mạnh đây là thời điểm cuối để renew hoặc gia hạn các sản phẩm đang lưu hành trước khi hướng mới trở thành cấu trúc chính.
+          </p>
+          <p class="lang-en lang-hidden mt-3 text-slate-600 leading-7">
+            Emphasize that this is the final period to renew or extend current products before the new direction becomes the main structure.
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+          <div class="text-xs font-black uppercase tracking-[0.18em] text-red-600">03</div>
+          <div class="lang-vi mt-2 text-xl font-black text-slate-900">Mục tiêu cuối cùng</div>
+          <div class="lang-en lang-hidden mt-2 text-xl font-black text-slate-900">Ultimate objective</div>
+          <p class="lang-vi mt-3 text-slate-600 leading-7">
+            Chuyển đội ngũ từ mindset “bundle + giá” sang mindset “personalized solution + smart design”.
+          </p>
+          <p class="lang-en lang-hidden mt-3 text-slate-600 leading-7">
+            Move the team from a “bundle + price” mindset to a “personalized solution + smart design” mindset.
+          </p>
+        </div>
       </div>
-
-      <div id="summaryBenefits" class="mt-6"></div>
-
     </section>
 
   </main>
@@ -150,6 +458,5 @@
   <script src="./assets/js/data.js"></script>
   <script src="./assets/js/i18n.js"></script>
   <script src="./assets/js/app.js"></script>
-
 </body>
 </html>
