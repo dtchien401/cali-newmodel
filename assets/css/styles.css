@@ -135,6 +135,41 @@ button:focus-visible {
   }
 }
 
+/* PRODUCT TABS */
+.product-tabs {
+  display: inline-flex;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  padding: 6px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+}
+
+.product-tab {
+  border: 0;
+  background: transparent;
+  color: #64748b;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.product-tab:hover {
+  color: #dc2626;
+  background: #fff5f5;
+}
+
+.product-tab.is-active {
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(220, 38, 38, 0.18);
+}
+
 /* CONFIGURATOR */
 #durationOptions button,
 #accessOptions button,
@@ -197,6 +232,19 @@ button:focus-visible {
   .story-tab {
     font-size: 11px;
     padding: 12px;
+    border-radius: 14px;
+  }
+
+  .product-tabs {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    border-radius: 20px;
+  }
+
+  .product-tab {
+    width: 100%;
+    text-align: center;
     border-radius: 14px;
   }
 }
