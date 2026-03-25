@@ -285,5 +285,6 @@
   }
   document.addEventListener("DOMContentLoaded", () => {
     window.setLanguage("vi");
+    initStoryTabs();
   });
 })();
