@@ -11,7 +11,6 @@
 <body class="page-shell">
   <div class="page-bg"></div>
 
-  <!-- HEADER -->
   <header class="max-w-7xl mx-auto px-6 pt-6 pb-4 flex justify-between items-center relative z-10">
     <div class="font-black text-lg">CALI</div>
 
@@ -26,7 +25,6 @@
     <section class="rounded-[32px] overflow-hidden soft-card hero-surface border border-white/70 p-8 lg:p-10">
       <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-8">
 
-        <!-- LEFT -->
         <div>
           <p class="lang-vi text-sm font-semibold uppercase tracking-[0.28em] text-red-500">
             Giai đoạn chuyển đổi sản phẩm
@@ -35,7 +33,6 @@
             Product transition period
           </p>
 
-          <!-- STEP NAV -->
           <div class="story-tabs grid grid-cols-2 md:grid-cols-4 gap-3 mt-6 max-w-2xl">
             <button class="story-tab" data-step="0">
               <span class="lang-vi">Bước 1</span>
@@ -55,10 +52,8 @@
             </button>
           </div>
 
-          <!-- STORY CONTENT -->
           <div class="story-panel mt-8">
 
-            <!-- STEP 1 -->
             <div class="story-step" data-step-content="0">
               <div class="inline-flex items-center rounded-full bg-red-50 text-red-600 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.2em]">
                 <span class="lang-vi">Mô hình cũ</span>
@@ -108,7 +103,6 @@
               </div>
             </div>
 
-            <!-- STEP 2 -->
             <div class="story-step hidden" data-step-content="1">
               <div class="inline-flex items-center rounded-full bg-red-50 text-red-600 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.2em]">
                 <span class="lang-vi">Điểm thay đổi</span>
@@ -156,7 +150,6 @@
               </div>
             </div>
 
-            <!-- STEP 3 -->
             <div class="story-step hidden" data-step-content="2">
               <div class="inline-flex items-center rounded-full bg-red-50 text-red-600 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.2em]">
                 <span class="lang-vi">Cách nói mới</span>
@@ -206,7 +199,6 @@
               </div>
             </div>
 
-            <!-- STEP 4 -->
             <div class="story-step hidden" data-step-content="3">
               <div class="inline-flex items-center rounded-full bg-red-50 text-red-600 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.2em]">
                 <span class="lang-vi">Cơ hội hiện tại</span>
@@ -236,7 +228,6 @@
           </div>
         </div>
 
-        <!-- RIGHT -->
         <div>
           <div class="rounded-3xl border border-slate-200 bg-white/80 p-6 h-full">
             <div class="lang-vi text-sm font-extrabold uppercase tracking-[0.2em] text-red-600">
@@ -289,6 +280,36 @@
       </div>
     </section>
 
+    <!-- COMBO TAB -->
+    <section class="mt-10 rounded-3xl bg-white border border-slate-200 p-6 soft-card">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6">
+        <div>
+          <p class="lang-vi text-sm font-bold uppercase tracking-[0.2em] text-red-600">
+            Combo gợi ý
+          </p>
+          <p class="lang-en lang-hidden text-sm font-bold uppercase tracking-[0.2em] text-red-600">
+            Recommended combos
+          </p>
+
+          <h2 class="lang-vi mt-2 text-2xl font-black text-slate-900">
+            5 combo phổ biến nhất theo lifestyle và nhu cầu tập luyện
+          </h2>
+          <h2 class="lang-en lang-hidden mt-2 text-2xl font-black text-slate-900">
+            5 most popular combos based on lifestyle and training needs
+          </h2>
+        </div>
+
+        <div class="lang-vi text-sm text-slate-500 max-w-xl">
+          Đây là các cấu hình gợi ý để khách chọn nhanh hơn. Sau đó vẫn có thể tiếp tục tùy chỉnh theo nhu cầu.
+        </div>
+        <div class="lang-en lang-hidden text-sm text-slate-500 max-w-xl">
+          These are suggested starting points to help clients choose faster. They can still customize further afterward.
+        </div>
+      </div>
+
+      <div id="comboGroups" class="space-y-8"></div>
+    </section>
+
     <!-- CONFIGURATOR -->
     <section class="mt-10 rounded-3xl bg-white border border-slate-200 p-6 soft-card">
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6">
@@ -316,21 +337,18 @@
         </div>
       </div>
 
-      <!-- DURATION -->
       <div class="mb-6">
         <div class="lang-vi font-bold mb-2 text-slate-900">Bước 1 — Chọn thời hạn</div>
         <div class="lang-en lang-hidden font-bold mb-2 text-slate-900">Step 1 — Select duration</div>
         <div id="durationOptions" class="grid grid-cols-2 md:grid-cols-4 gap-3"></div>
       </div>
 
-      <!-- ACCESS -->
       <div class="mb-6">
         <div class="lang-vi font-bold mb-2 text-slate-900">Bước 2 — Chọn gym access</div>
         <div class="lang-en lang-hidden font-bold mb-2 text-slate-900">Step 2 — Select gym access</div>
         <div id="accessOptions" class="grid md:grid-cols-2 gap-4"></div>
       </div>
 
-      <!-- BENEFITS -->
       <div>
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-3">
           <div>
