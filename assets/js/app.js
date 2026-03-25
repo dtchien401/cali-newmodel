@@ -1,7 +1,13 @@
 (function () {
-  const { durationLabels, discountByRank, accessData, benefitGroups } = window.APP_DATA;
-  const state = window.APP_STATE;
+  const {
+    durationLabels,
+    discountByRank,
+    accessData,
+    benefitGroups,
+    comboGroups
+  } = window.APP_DATA;
 
+  const state = window.APP_STATE;
   let storyStepIndex = 0;
 
   function formatVND(num) {
@@ -24,6 +30,10 @@
     return null;
   }
 
+  function getAccessById(id) {
+    return accessData.find((x) => x.id === id) || null;
+  }
+
   function getSelectedAccess() {
     let access = accessData.find((x) => x.id === state.access) || accessData[0];
 
@@ -43,6 +53,35 @@
     });
   }
 
+  function calculateConfigSummary(duration, accessId, benefitIds) {
+    let access = getAccessById(accessId) || accessData[0];
+    if (!access.prices[duration]) {
+      const fallback = accessData.find((x) => x.prices[duration]);
+      access = fallback || access;
+    }
+
+    const accessPrice = access.prices[duration] || 0;
+
+    const selectedBenefitObjects = benefitIds
+      .map(getBenefitById)
+      .filter((item) => item && item.prices[duration]);
+
+    let benefitTotal = 0;
+
+    const benefitRows = selectedBenefitObjects.map((item, index) => {
+      const base = item.prices[duration] || 0;
+      const discount = discountByRank[Math.min(index, discountByRank.length - 1)] || 0.20;
+      const finalPrice = base * (1 - discount);
+      benefitTotal += finalPrice;
+      return { item, base, discount, finalPrice };
+    });
+
+    const total = accessPrice + benefitTotal;
+    const monthly = total / duration;
+
+    return { access, accessPrice, benefitRows, total, monthly };
+  }
+
   function renderDurations() {
     const wrap = document.getElementById("durationOptions");
     if (!wrap) return;
@@ -52,11 +91,8 @@
       const label = durationLabels[months][state.lang];
 
       return `
-        <button
-          onclick="selectDuration(${months})"
-          type="button"
-          class="text-left rounded-2xl border p-4 transition ${active}"
-        >
+        <button onclick="selectDuration(${months})" type="button"
+          class="text-left rounded-2xl border p-4 transition ${active}">
           <div class="text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">
             ${durationDiscountLabel(months)}
           </div>
@@ -83,11 +119,8 @@
         : `<div class="mt-1 text-sm text-slate-500">${formatVND(item.prices[state.duration] / state.duration)} / ${state.lang === "vi" ? "tháng" : "month"}</div>`;
 
       return `
-        <button
-          onclick="selectAccess('${item.id}')"
-          type="button"
-          class="text-left rounded-2xl border p-5 transition ${active} ${unavailable ? "opacity-70 cursor-not-allowed" : ""}"
-        >
+        <button onclick="selectAccess('${item.id}')" type="button"
+          class="text-left rounded-2xl border p-5 transition ${active} ${unavailable ? "opacity-70 cursor-not-allowed" : ""}">
           <div>
             <div class="text-lg font-black text-slate-900">${item.name[state.lang]}</div>
             <div class="mt-1 text-sm text-slate-500 leading-6">${item.remark[state.lang]}</div>
@@ -148,11 +181,8 @@
                 : "";
 
               return `
-                <button
-                  onclick="toggleBenefit('${item.id}')"
-                  type="button"
-                  class="text-left rounded-2xl border p-5 transition ${active} ${unavailable ? "opacity-60 cursor-not-allowed" : ""}"
-                >
+                <button onclick="toggleBenefit('${item.id}')" type="button"
+                  class="text-left rounded-2xl border p-5 transition ${active} ${unavailable ? "opacity-60 cursor-not-allowed" : ""}">
                   <div class="flex items-start justify-between gap-3">
                     <div>
                       <div class="text-lg font-black text-slate-900">${item.name[state.lang]}</div>
@@ -175,6 +205,95 @@
                     ${valueNote}
                   </div>
                 </button>
+              `;
+            }).join("")}
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  function renderCombos() {
+    const wrap = document.getElementById("comboGroups");
+    if (!wrap || !comboGroups) return;
+
+    wrap.innerHTML = comboGroups.map((group) => {
+      return `
+        <div>
+          <div class="text-sm font-black uppercase tracking-[0.18em] text-slate-500 mb-4">
+            ${group.title[state.lang]}
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-4 ${group.combos.length === 1 ? "max-w-2xl" : ""}">
+            ${group.combos.map((combo) => {
+              const summary = calculateConfigSummary(combo.duration, combo.access, combo.benefits);
+              const access = getAccessById(combo.access);
+              const benefitNames = combo.benefits
+                .map((id) => getBenefitById(id))
+                .filter(Boolean)
+                .map((item) => item.name[state.lang]);
+
+              return `
+                <div class="combo-card rounded-3xl border border-slate-200 bg-white p-5">
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <div class="text-2xl font-black text-slate-900">${combo.name[state.lang]}</div>
+                      <div class="mt-2 text-sm text-slate-500 leading-6">${combo.audience[state.lang]}</div>
+                    </div>
+                    <div class="rounded-full bg-red-50 text-red-600 px-3 py-1 text-xs font-black uppercase tracking-[0.18em]">
+                      ${durationLabels[combo.duration][state.lang]}
+                    </div>
+                  </div>
+
+                  <div class="mt-5 grid gap-3">
+                    <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+                      <div class="text-xs font-black uppercase tracking-[0.18em] text-slate-500">
+                        ${state.lang === "vi" ? "Access" : "Access"}
+                      </div>
+                      <div class="mt-2 text-lg font-black text-slate-900">
+                        ${access ? access.name[state.lang] : combo.access}
+                      </div>
+                      <div class="mt-1 text-sm text-slate-500">
+                        ${access ? access.remark[state.lang] : ""}
+                      </div>
+                    </div>
+
+                    <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+                      <div class="text-xs font-black uppercase tracking-[0.18em] text-slate-500">
+                        ${state.lang === "vi" ? "Benefits included" : "Benefits included"}
+                      </div>
+                      <div class="mt-2 flex flex-wrap gap-2">
+                        ${benefitNames.map((name) => `
+                          <span class="inline-flex rounded-full bg-white border border-slate-200 px-3 py-1 text-sm font-semibold text-slate-700">${name}</span>
+                        `).join("")}
+                      </div>
+                    </div>
+
+                    <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+                      <div class="text-xs font-black uppercase tracking-[0.18em] text-slate-500">
+                        ${state.lang === "vi" ? "Why this combo works" : "Why this combo works"}
+                      </div>
+                      <div class="mt-2 text-sm text-slate-600 leading-7">
+                        ${combo.why[state.lang]}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-5 grid md:grid-cols-[1fr_auto] gap-4 items-end">
+                    <div>
+                      <div class="text-xs font-black uppercase tracking-[0.18em] text-slate-500">
+                        ${state.lang === "vi" ? "Estimated monthly investment" : "Estimated monthly investment"}
+                      </div>
+                      <div class="mt-1 text-3xl font-black text-red-600">${formatVND(summary.monthly)}</div>
+                      <div class="mt-1 text-sm text-slate-500">${formatVND(summary.total)} total</div>
+                    </div>
+
+                    <button onclick="useCombo('${combo.id}')" type="button"
+                      class="rounded-2xl bg-red-600 text-white px-5 py-3 font-bold shadow hover:opacity-95 transition">
+                      ${state.lang === "vi" ? "Dùng combo này" : "Use this combo"}
+                    </button>
+                  </div>
+                </div>
               `;
             }).join("")}
           </div>
@@ -294,6 +413,7 @@
     renderDurations();
     renderAccess();
     renderBenefits();
+    renderCombos();
     renderSummary();
   }
 
@@ -322,10 +442,34 @@
     renderAll();
   }
 
+  function useCombo(comboId) {
+    let selectedCombo = null;
+
+    comboGroups.forEach((group) => {
+      group.combos.forEach((combo) => {
+        if (combo.id === comboId) selectedCombo = combo;
+      });
+    });
+
+    if (!selectedCombo) return;
+
+    state.duration = selectedCombo.duration;
+    state.access = selectedCombo.access;
+    state.benefits = [...selectedCombo.benefits];
+
+    renderAll();
+
+    const configuratorSection = document.getElementById("durationOptions");
+    if (configuratorSection) {
+      configuratorSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
   window.renderAll = renderAll;
   window.selectDuration = selectDuration;
   window.selectAccess = selectAccess;
   window.toggleBenefit = toggleBenefit;
+  window.useCombo = useCombo;
 
   document.addEventListener("DOMContentLoaded", () => {
     window.setLanguage("vi");
