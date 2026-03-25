@@ -323,164 +323,166 @@
     </section>
 
     <!-- BUILDER TAB PANEL -->
-    <section id="panel-builder" class="product-panel hidden mt-6 rounded-3xl bg-white border border-slate-200 p-6 soft-card">
-      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6">
-        <div>
-          <p class="lang-vi text-sm font-bold uppercase tracking-[0.2em] text-red-600">
-            Demo cấu trúc mới
-          </p>
-          <p class="lang-en lang-hidden text-sm font-bold uppercase tracking-[0.2em] text-red-600">
-            New structure demo
-          </p>
-
-          <h2 class="lang-vi mt-2 text-2xl font-black text-slate-900">
-            Tự thiết kế membership theo lifestyle và nhu cầu tập luyện
-          </h2>
-          <h2 class="lang-en lang-hidden mt-2 text-2xl font-black text-slate-900">
-            Design your own membership based on lifestyle and training needs
-          </h2>
-        </div>
-
-        <div class="lang-vi text-sm text-slate-500">
-          Logic giá mô phỏng theo file pricing bạn gửi
-        </div>
-        <div class="lang-en lang-hidden text-sm text-slate-500">
-          Pricing simulation based on the file you shared
-        </div>
-      </div>
-
-      <div class="mb-6">
-        <div class="lang-vi font-bold mb-2 text-slate-900">Bước 1 — Chọn thời hạn</div>
-        <div class="lang-en lang-hidden font-bold mb-2 text-slate-900">Step 1 — Select duration</div>
-        <div id="durationOptions" class="grid grid-cols-2 md:grid-cols-4 gap-3"></div>
-      </div>
-
-      <div class="mb-6">
-        <div class="lang-vi font-bold mb-2 text-slate-900">Bước 2 — Chọn gym access</div>
-        <div class="lang-en lang-hidden font-bold mb-2 text-slate-900">Step 2 — Select gym access</div>
-        <div id="accessOptions" class="grid md:grid-cols-2 gap-4"></div>
-      </div>
-
-      <div>
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-3">
+    <section id="panel-builder" class="product-panel hidden">
+      <section class="mt-6 rounded-3xl bg-white border border-slate-200 p-6 soft-card">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6">
           <div>
-            <div class="lang-vi font-bold text-slate-900">Bước 3 — Chọn benefits</div>
-            <div class="lang-en lang-hidden font-bold text-slate-900">Step 3 — Select benefits</div>
+            <p class="lang-vi text-sm font-bold uppercase tracking-[0.2em] text-red-600">
+              Demo cấu trúc mới
+            </p>
+            <p class="lang-en lang-hidden text-sm font-bold uppercase tracking-[0.2em] text-red-600">
+              New structure demo
+            </p>
+
+            <h2 class="lang-vi mt-2 text-2xl font-black text-slate-900">
+              Tự thiết kế membership theo lifestyle và nhu cầu tập luyện
+            </h2>
+            <h2 class="lang-en lang-hidden mt-2 text-2xl font-black text-slate-900">
+              Design your own membership based on lifestyle and training needs
+            </h2>
           </div>
 
-          <div class="rounded-full bg-slate-50 border border-slate-200 px-3 py-1.5 text-xs font-bold text-slate-600">
-            <span class="lang-vi">Discount theo số benefit: 1st -10%, 2nd -15%, từ 3rd trở đi -20%</span>
-            <span class="lang-en lang-hidden">Benefit discount by order: 1st -10%, 2nd -15%, 3rd onward -20%</span>
+          <div class="lang-vi text-sm text-slate-500">
+            Logic giá mô phỏng theo file pricing bạn gửi
+          </div>
+          <div class="lang-en lang-hidden text-sm text-slate-500">
+            Pricing simulation based on the file you shared
           </div>
         </div>
 
-        <div id="benefitGroups" class="space-y-6"></div>
-      </div>
-    </section>
+        <div class="mb-6">
+          <div class="lang-vi font-bold mb-2 text-slate-900">Bước 1 — Chọn thời hạn</div>
+          <div class="lang-en lang-hidden font-bold mb-2 text-slate-900">Step 1 — Select duration</div>
+          <div id="durationOptions" class="grid grid-cols-2 md:grid-cols-4 gap-3"></div>
+        </div>
 
-    <!-- SUMMARY -->
-    <section class="mt-10 rounded-3xl summary-panel p-6 text-white soft-card">
-      <div class="flex items-center justify-between gap-3">
+        <div class="mb-6">
+          <div class="lang-vi font-bold mb-2 text-slate-900">Bước 2 — Chọn gym access</div>
+          <div class="lang-en lang-hidden font-bold mb-2 text-slate-900">Step 2 — Select gym access</div>
+          <div id="accessOptions" class="grid md:grid-cols-2 gap-4"></div>
+        </div>
+
         <div>
-          <div class="lang-vi text-sm uppercase text-slate-400 font-bold tracking-[0.2em]">Summary</div>
-          <div class="lang-en lang-hidden text-sm uppercase text-slate-400 font-bold tracking-[0.2em]">Summary</div>
-          <h3 class="lang-vi mt-2 text-2xl font-black">Membership của khách</h3>
-          <h3 class="lang-en lang-hidden mt-2 text-2xl font-black">Client membership</h3>
-        </div>
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-3">
+            <div>
+              <div class="lang-vi font-bold text-slate-900">Bước 3 — Chọn benefits</div>
+              <div class="lang-en lang-hidden font-bold text-slate-900">Step 3 — Select benefits</div>
+            </div>
 
-        <div id="benefitCountBadge" class="rounded-full bg-red-500 px-3 py-1 text-xs font-black text-white">
-          0
-        </div>
-      </div>
-
-      <div class="mt-6 grid md:grid-cols-3 gap-4">
-        <div class="rounded-2xl bg-white/5 border border-white/10 p-4">
-          <div class="lang-vi text-xs uppercase text-slate-300 font-bold tracking-[0.18em]">Duration</div>
-          <div class="lang-en lang-hidden text-xs uppercase text-slate-300 font-bold tracking-[0.18em]">Duration</div>
-          <div id="summaryDuration" class="mt-2 text-lg font-black text-white"></div>
-        </div>
-
-        <div class="rounded-2xl bg-white/5 border border-white/10 p-4 md:col-span-2">
-          <div class="lang-vi text-xs uppercase text-slate-300 font-bold tracking-[0.18em]">Gym access</div>
-          <div class="lang-en lang-hidden text-xs uppercase text-slate-300 font-bold tracking-[0.18em]">Gym access</div>
-          <div id="summaryAccess" class="mt-2 text-lg font-black text-white"></div>
-          <div id="summaryAccessRemark" class="mt-1 text-sm text-slate-300"></div>
-        </div>
-      </div>
-
-      <div class="mt-6 grid md:grid-cols-2 gap-4">
-        <div class="rounded-2xl bg-red-600 p-5">
-          <div class="lang-vi text-xs uppercase text-red-100 font-bold tracking-[0.18em]">
-            Estimated monthly investment
+            <div class="rounded-full bg-slate-50 border border-slate-200 px-3 py-1.5 text-xs font-bold text-slate-600">
+              <span class="lang-vi">Discount theo số benefit: 1st -10%, 2nd -15%, từ 3rd trở đi -20%</span>
+              <span class="lang-en lang-hidden">Benefit discount by order: 1st -10%, 2nd -15%, 3rd onward -20%</span>
+            </div>
           </div>
-          <div class="lang-en lang-hidden text-xs uppercase text-red-100 font-bold tracking-[0.18em]">
-            Estimated monthly investment
+
+          <div id="benefitGroups" class="space-y-6"></div>
+        </div>
+      </section>
+
+      <!-- SUMMARY -->
+      <section class="mt-10 rounded-3xl summary-panel p-6 text-white soft-card">
+        <div class="flex items-center justify-between gap-3">
+          <div>
+            <div class="lang-vi text-sm uppercase text-slate-400 font-bold tracking-[0.2em]">Summary</div>
+            <div class="lang-en lang-hidden text-sm uppercase text-slate-400 font-bold tracking-[0.2em]">Summary</div>
+            <h3 class="lang-vi mt-2 text-2xl font-black">Membership của khách</h3>
+            <h3 class="lang-en lang-hidden mt-2 text-2xl font-black">Client membership</h3>
           </div>
-          <div id="summaryMonthly" class="mt-2 text-4xl font-black text-white"></div>
-        </div>
 
-        <div class="rounded-2xl bg-white p-5 text-slate-900">
-          <div class="lang-vi text-xs uppercase text-slate-500 font-bold tracking-[0.18em]">
-            Total contract value
+          <div id="benefitCountBadge" class="rounded-full bg-red-500 px-3 py-1 text-xs font-black text-white">
+            0
           </div>
-          <div class="lang-en lang-hidden text-xs uppercase text-slate-500 font-bold tracking-[0.18em]">
-            Total contract value
+        </div>
+
+        <div class="mt-6 grid md:grid-cols-3 gap-4">
+          <div class="rounded-2xl bg-white/5 border border-white/10 p-4">
+            <div class="lang-vi text-xs uppercase text-slate-300 font-bold tracking-[0.18em]">Duration</div>
+            <div class="lang-en lang-hidden text-xs uppercase text-slate-300 font-bold tracking-[0.18em]">Duration</div>
+            <div id="summaryDuration" class="mt-2 text-lg font-black text-white"></div>
           </div>
-          <div id="summaryTotal" class="mt-2 text-3xl font-black"></div>
-          <div id="summaryFootnote" class="mt-2 text-xs text-slate-500 leading-6"></div>
-        </div>
-      </div>
 
-      <div class="mt-6">
-        <div class="lang-vi text-xs uppercase text-slate-300 font-bold tracking-[0.18em] mb-3">
-          Benefits đã chọn
-        </div>
-        <div class="lang-en lang-hidden text-xs uppercase text-slate-300 font-bold tracking-[0.18em] mb-3">
-          Selected benefits
-        </div>
-        <div id="summaryBenefits" class="space-y-2"></div>
-      </div>
-    </section>
-
-    <!-- BOTTOM TRAINING NOTE -->
-    <section class="mt-10 rounded-3xl border border-slate-200 bg-white p-6 soft-card">
-      <div class="grid lg:grid-cols-3 gap-6">
-        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-          <div class="text-xs font-black uppercase tracking-[0.18em] text-red-600">01</div>
-          <div class="lang-vi mt-2 text-xl font-black text-slate-900">Nói đúng logic</div>
-          <div class="lang-en lang-hidden mt-2 text-xl font-black text-slate-900">Use the right logic</div>
-          <p class="lang-vi mt-3 text-slate-600 leading-7">
-            Không bán chuyện “đắt hơn hay rẻ hơn”. Hãy bán cảm giác chủ động, phù hợp và kiểm soát.
-          </p>
-          <p class="lang-en lang-hidden mt-3 text-slate-600 leading-7">
-            Do not sell “higher” or “lower” price. Sell fit, control, and ownership.
-          </p>
+          <div class="rounded-2xl bg-white/5 border border-white/10 p-4 md:col-span-2">
+            <div class="lang-vi text-xs uppercase text-slate-300 font-bold tracking-[0.18em]">Gym access</div>
+            <div class="lang-en lang-hidden text-xs uppercase text-slate-300 font-bold tracking-[0.18em]">Gym access</div>
+            <div id="summaryAccess" class="mt-2 text-lg font-black text-white"></div>
+            <div id="summaryAccessRemark" class="mt-1 text-sm text-slate-300"></div>
+          </div>
         </div>
 
-        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-          <div class="text-xs font-black uppercase tracking-[0.18em] text-red-600">02</div>
-          <div class="lang-vi mt-2 text-xl font-black text-slate-900">Tận dụng giai đoạn chuyển tiếp</div>
-          <div class="lang-en lang-hidden mt-2 text-xl font-black text-slate-900">Use the transition period</div>
-          <p class="lang-vi mt-3 text-slate-600 leading-7">
-            Nhấn mạnh đây là thời điểm cuối để renew hoặc gia hạn các sản phẩm đang lưu hành trước khi hướng mới trở thành cấu trúc chính.
-          </p>
-          <p class="lang-en lang-hidden mt-3 text-slate-600 leading-7">
-            Emphasize that this is the final period to renew or extend current products before the new direction becomes the main structure.
-          </p>
+        <div class="mt-6 grid md:grid-cols-2 gap-4">
+          <div class="rounded-2xl bg-red-600 p-5">
+            <div class="lang-vi text-xs uppercase text-red-100 font-bold tracking-[0.18em]">
+              Estimated monthly investment
+            </div>
+            <div class="lang-en lang-hidden text-xs uppercase text-red-100 font-bold tracking-[0.18em]">
+              Estimated monthly investment
+            </div>
+            <div id="summaryMonthly" class="mt-2 text-4xl font-black text-white"></div>
+          </div>
+
+          <div class="rounded-2xl bg-white p-5 text-slate-900">
+            <div class="lang-vi text-xs uppercase text-slate-500 font-bold tracking-[0.18em]">
+              Total contract value
+            </div>
+            <div class="lang-en lang-hidden text-xs uppercase text-slate-500 font-bold tracking-[0.18em]">
+              Total contract value
+            </div>
+            <div id="summaryTotal" class="mt-2 text-3xl font-black"></div>
+            <div id="summaryFootnote" class="mt-2 text-xs text-slate-500 leading-6"></div>
+          </div>
         </div>
 
-        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-          <div class="text-xs font-black uppercase tracking-[0.18em] text-red-600">03</div>
-          <div class="lang-vi mt-2 text-xl font-black text-slate-900">Mục tiêu cuối cùng</div>
-          <div class="lang-en lang-hidden mt-2 text-xl font-black text-slate-900">Ultimate objective</div>
-          <p class="lang-vi mt-3 text-slate-600 leading-7">
-            Chuyển đội ngũ từ mindset “bundle + giá” sang mindset “personalized solution + smart design”.
-          </p>
-          <p class="lang-en lang-hidden mt-3 text-slate-600 leading-7">
-            Move the team from a “bundle + price” mindset to a “personalized solution + smart design” mindset.
-          </p>
+        <div class="mt-6">
+          <div class="lang-vi text-xs uppercase text-slate-300 font-bold tracking-[0.18em] mb-3">
+            Benefits đã chọn
+          </div>
+          <div class="lang-en lang-hidden text-xs uppercase text-slate-300 font-bold tracking-[0.18em] mb-3">
+            Selected benefits
+          </div>
+          <div id="summaryBenefits" class="space-y-2"></div>
         </div>
-      </div>
+      </section>
+
+      <!-- BOTTOM TRAINING NOTE -->
+      <section class="mt-10 rounded-3xl border border-slate-200 bg-white p-6 soft-card">
+        <div class="grid lg:grid-cols-3 gap-6">
+          <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <div class="text-xs font-black uppercase tracking-[0.18em] text-red-600">01</div>
+            <div class="lang-vi mt-2 text-xl font-black text-slate-900">Nói đúng logic</div>
+            <div class="lang-en lang-hidden mt-2 text-xl font-black text-slate-900">Use the right logic</div>
+            <p class="lang-vi mt-3 text-slate-600 leading-7">
+              Không bán chuyện “đắt hơn hay rẻ hơn”. Hãy bán cảm giác chủ động, phù hợp và kiểm soát.
+            </p>
+            <p class="lang-en lang-hidden mt-3 text-slate-600 leading-7">
+              Do not sell “higher” or “lower” price. Sell fit, control, and ownership.
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <div class="text-xs font-black uppercase tracking-[0.18em] text-red-600">02</div>
+            <div class="lang-vi mt-2 text-xl font-black text-slate-900">Tận dụng giai đoạn chuyển tiếp</div>
+            <div class="lang-en lang-hidden mt-2 text-xl font-black text-slate-900">Use the transition period</div>
+            <p class="lang-vi mt-3 text-slate-600 leading-7">
+              Nhấn mạnh đây là thời điểm cuối để renew hoặc gia hạn các sản phẩm đang lưu hành trước khi hướng mới trở thành cấu trúc chính.
+            </p>
+            <p class="lang-en lang-hidden mt-3 text-slate-600 leading-7">
+              Emphasize that this is the final period to renew or extend current products before the new direction becomes the main structure.
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <div class="text-xs font-black uppercase tracking-[0.18em] text-red-600">03</div>
+            <div class="lang-vi mt-2 text-xl font-black text-slate-900">Mục tiêu cuối cùng</div>
+            <div class="lang-en lang-hidden mt-2 text-xl font-black text-slate-900">Ultimate objective</div>
+            <p class="lang-vi mt-3 text-slate-600 leading-7">
+              Chuyển đội ngũ từ mindset “bundle + giá” sang mindset “personalized solution + smart design”.
+            </p>
+            <p class="lang-en lang-hidden mt-3 text-slate-600 leading-7">
+              Move the team from a “bundle + price” mindset to a “personalized solution + smart design” mindset.
+            </p>
+          </div>
+        </div>
+      </section>
     </section>
 
   </main>
