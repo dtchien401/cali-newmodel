@@ -9,6 +9,7 @@
 
   const state = window.APP_STATE;
   let storyStepIndex = 0;
+  let currentProductTab = "combo";
 
   function formatVND(num) {
     return new Intl.NumberFormat("en-US").format(Math.round(num)) + " VND";
@@ -408,6 +409,33 @@
     showStoryStep(0);
   }
 
+  function showProductTab(tabName) {
+    currentProductTab = tabName;
+
+    document.querySelectorAll(".product-tab").forEach((tab) => {
+      tab.classList.toggle("is-active", tab.dataset.productTab === tabName);
+    });
+
+    const comboPanel = document.getElementById("panel-combo");
+    const builderPanel = document.getElementById("panel-builder");
+
+    if (comboPanel) comboPanel.classList.toggle("hidden", tabName !== "combo");
+    if (builderPanel) builderPanel.classList.toggle("hidden", tabName !== "builder");
+  }
+
+  function initProductTabs() {
+    const tabs = document.querySelectorAll(".product-tab");
+    if (!tabs.length) return;
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        showProductTab(tab.dataset.productTab);
+      });
+    });
+
+    showProductTab(currentProductTab);
+  }
+
   function renderAll() {
     recalcBenefitsForDuration();
     renderDurations();
@@ -458,10 +486,11 @@
     state.benefits = [...selectedCombo.benefits];
 
     renderAll();
+    showProductTab("builder");
 
-    const configuratorSection = document.getElementById("durationOptions");
-    if (configuratorSection) {
-      configuratorSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    const builderPanel = document.getElementById("panel-builder");
+    if (builderPanel) {
+      builderPanel.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }
 
@@ -474,5 +503,6 @@
   document.addEventListener("DOMContentLoaded", () => {
     window.setLanguage("vi");
     initStoryTabs();
+    initProductTabs();
   });
 })();
